@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code/nordic/default</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code/nordic/default</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=D">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/sample_code/nordic/">Parent Directory</a>                             -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="Makefile">Makefile</a>                11-Dec-2007 00:11  2.1K  
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="dep/">dep/</a>                    10-Dec-2007 09:18    -   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic.elf">nordic.elf</a>              11-Dec-2007 00:11   35K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic.hex">nordic.hex</a>              11-Dec-2007 00:11   19K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic.lss">nordic.lss</a>              11-Dec-2007 00:11  156K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic.map">nordic.map</a>              11-Dec-2007 00:11   25K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic_receive.elf">nordic_receive.elf</a>      07-Dec-2007 20:26   29K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic_receive.hex">nordic_receive.hex</a>      07-Dec-2007 20:26   13K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic_receive.lss">nordic_receive.lss</a>      07-Dec-2007 20:26  109K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic_receive.map">nordic_receive.map</a>      07-Dec-2007 20:26   17K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic_receive.o">nordic_receive.o</a>        07-Dec-2007 20:26  4.8K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nrf24l01.o">nrf24l01.o</a>              11-Dec-2007 00:11   37K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="spi1.o">spi1.o</a>                  11-Dec-2007 00:11  3.4K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="tutorial2local.o">tutorial2local.o</a>        11-Dec-2007 00:11  7.8K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart0.o">usart0.o</a>                11-Dec-2007 00:11  4.3K  
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

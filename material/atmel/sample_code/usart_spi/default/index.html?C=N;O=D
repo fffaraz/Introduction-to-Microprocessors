@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code/usart_spi/default</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code/usart_spi/default</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/sample_code/usart_spi/">Parent Directory</a>                             -   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart_spi.o">usart_spi.o</a>             18-Feb-2008 14:14  8.2K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart_spi.map">usart_spi.map</a>           18-Feb-2008 14:14   14K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart_spi.lss">usart_spi.lss</a>           18-Feb-2008 14:14   14K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart_spi.hex">usart_spi.hex</a>           18-Feb-2008 14:14  2.1K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart_spi.elf">usart_spi.elf</a>           18-Feb-2008 14:14  8.6K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart_spi.eep">usart_spi.eep</a>           18-Feb-2008 14:14   13   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="dep/">dep/</a>                    18-Feb-2008 14:19    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="Makefile">Makefile</a>                18-Feb-2008 14:14  1.9K  
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

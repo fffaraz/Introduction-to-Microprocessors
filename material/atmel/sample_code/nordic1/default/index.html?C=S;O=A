@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code/nordic1/default</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code/nordic1/default</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=D">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/sample_code/nordic1/">Parent Directory</a>                             -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="dep/">dep/</a>                    14-Dec-2007 11:50    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="Makefile">Makefile</a>                14-Dec-2007 11:12  2.1K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="spi1.o">spi1.o</a>                  14-Dec-2007 11:12  3.3K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="usart0.o">usart0.o</a>                13-Dec-2007 21:05  4.3K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.o">nordic1_receive.o</a>       14-Dec-2007 11:12  5.1K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.o">nordic1_send.o</a>          13-Dec-2007 21:05  7.7K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.hex">nordic1_receive.hex</a>     14-Dec-2007 11:12   13K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.map">nordic1_receive.map</a>     14-Dec-2007 11:12   17K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.hex">nordic1_send.hex</a>        13-Dec-2007 21:05   19K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.map">nordic1_send.map</a>        13-Dec-2007 21:05   24K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.elf">nordic1_receive.elf</a>     14-Dec-2007 11:12   29K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.elf">nordic1_send.elf</a>        13-Dec-2007 21:05   35K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nrf24l01.o">nrf24l01.o</a>              14-Dec-2007 11:12   37K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.lss">nordic1_receive.lss</a>     14-Dec-2007 11:12  110K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.lss">nordic1_send.lss</a>        13-Dec-2007 21:05  152K  
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

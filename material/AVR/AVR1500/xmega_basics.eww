@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\task 1 - Basic LED Control\basicled_control.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task 2 - Generic Drivers\generic_drivers.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task 4 - Multiconfiguration\multiconfiguration.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task 3 - Output and Pull Configuration\outputandpull.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

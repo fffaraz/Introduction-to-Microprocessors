@@ -1,0 +1,139 @@
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://www.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 Lab 4 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 4: Synchronous communication - the SPI</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The main goal of this lab is to become familiar with the SPI port,
+and with synchronous data communication. Also, to use the SPI
+to control a simple output device.
+
+<!--
+<h2> Laboratory Report Submission Details </h2>
+<p>
+A laboratory report briefly describing what was done in the lab,
+including any relevant observations, and giving the responses to
+the questions in the laboratory description.
+
+<P>
+Any code written should also be provided, and demonstrated to the
+lab instructor before it is submitted.
+
+<P>
+The lab report is expected at the end of the lab period.
+-->
+
+<h2> Synchronous communication - SPI </h2>
+
+<P>
+The SPI port is a common interface to peripheral devices.
+It uses a small number of pins, and can maintain a high data transfer rate.
+It is used with many devices, including flash memory devices (SD cards),
+ADCs, DACs, display controllers, RF (radio frequency) communication devices,
+etc.
+
+<h2> Extending the SPI controller </h2>
+
+<p>
+In this lab, you will extend the SPI controller from class by creating
+a function to output an integer, rather than a single character, on the
+SPI port.
+
+<p>
+Test this function by connecting the output (the <TT>MOSI</TT> pin)
+to the input (the <TT>MISO</TT> pin) and displaying the output on the LEDs.
+
+<p>
+Some devices do not support the SPI in hardware.
+Write a function which performs the same way in software, and test
+it as above.
+
+<h2> Controlling a serial DAC </h2>
+
+<P>
+The Microchip MCP4921 12 bit digital to analog converter (DAC) is a
+typical peripheral device using the SPI as a controller.
+This device only receives input, so communication is in one direction.
+It is typically used to set an accurate fixed or slowly varying
+voltage level to control some other device, or to set a specific value
+for comparison.
+A data sheet for this device is available
+<a href="http://www.cs.mun.ca/~paul/cs4723/material/linear/21897B_DAC.pdf"> here</a>.
+
+<P>
+Like many such devices, it uses serial input in order to reduce the
+total number of pins on the device, and consequently the cost of
+the device.
+
+<P>
+The output voltage is the 12 bit number input serially divided
+by 2<sup>12</sup>, multiplied by the reference voltage, V<sub>ref</sub>.
+Optionally, this voltage can be doubled.
+
+<P>
+It is a 12 bit device, but accepts a 16 bit input.
+The 12 low order bits are the relative value to be output.
+The 4 high order bits are control bits.
+See the data sheet to understand their use.
+
+<p>
+Configure the DAC with the reference voltage (pin 6) equal to the
+supply voltage, and connect the LDAC pin (pin 5) to ground, so the
+output is updated when the CS pin (SS on the SPI port) is set high
+after the data transfer.
+
+<p>
+<center><img src="lab4_files/lab4_dac.jpg"></center>
+
+
+<P>
+Write a program loop to display all the possible outputs from the DAC on
+the oscilloscope, as done for the 4 bit DAC in an earlier lab.
+
+<P>
+Use the DAC to control the brightness of a LED. The LED should have
+a 220 ohm resistor in series with it, to limit the total current to
+about 10 ma.  You can use the switches to set appropriate values,
+as done with the PWM controller.
+
+<P>
+DACs and PWMs are two common ways of digitally controlling external devices
+with high accuracy and controllability.
+
+<P>
+<h3>Optional:</h3>
+
+<P>
+Use this DAC to find the switching point (for both rising and falling voltages)
+as you did for an earlier lab. Comment on any difference you note.
+</body></html>

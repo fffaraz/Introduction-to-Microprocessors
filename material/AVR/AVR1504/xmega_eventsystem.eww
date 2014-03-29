@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\task1 - 32-bits TimerCounter\32bitTimerCounter.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task2 - Input capture\inputcapture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task4 - Manually generating events\ManuallyGeneratingEvents.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task3 - Synchronized triggering\SynchronizedTriggering.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

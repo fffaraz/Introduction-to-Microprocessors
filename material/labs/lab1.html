@@ -1,0 +1,213 @@
+
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://www.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 Lab 1 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 1: I/O ports - controlling input and output</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The main goal of this lab is to become familiar with data ports,
+simple electrical components (resistors and LEDs), and using the breadboard.
+
+
+<h2> Laboratory Report Submission Details </h2>
+<p>
+A laboratory report briefly describing what was done in the lab,
+including any relevant observations, and giving the responses to
+the questions in the laboratory description.
+
+<P>
+Any code written should also be provided, and demonstrated to the
+lab instructor before it is submitted.
+
+<P>
+The lab report is expected at the end of the lab period.
+
+
+<h2> The 7 segment display </h2>
+
+<P>
+We have used discrete LEDs as output displays for binary numbers.
+There is a standard display element for  decimal (or hexadecimal)
+numbers using 7 horizontal and vertical LED segments, called a
+<EM>7 segment display</EM>.
+
+<P>
+The following diagram shows the placement of the segments, and their
+usual labels.
+
+</p>
+<center>
+<img src="lab1_files/lab1_7seg.jpg">
+</center>
+
+<P>
+An animated graphic showing which segments are lit for each of the
+hexadecimal numbers can be seen at
+<a href="http://en.wikipedia.org/wiki/Seven-segment_display "> this wikipedia</a>
+page.
+
+The datasheet for the 7 segment display used in the lab is
+<a href="http://www.cs.mun.ca/~paul/cs4723/material/linear/7_seg_led.pdf"> here</a>.
+<P>
+Each segment is an individual LED, and (for the type we will be using -
+the common cathode configuration, is lit when a positive voltage
+is applied to the input pin.
+
+<P>
+In order to limit the current through the LED, a resistor should be placed
+in series with the LED.
+We will use a resistor array, containing 8 220 ohm resistors.
+<P>
+Write a C program which uses the switches, connected to port D, as input,
+and displays the number of the switch pressed.
+The switches are numbered 0 to 7, and the display should be blank
+when no switch is pressed.
+Use port C as the output port.
+
+Following is a picture of one possible configuration for this lab:
+
+</p>
+<center>
+<img src="lab1_files/lab1_set.jpg">
+</center>
+<p>
+
+<P>
+In the C language, the character data type is 8 bits, so it is commom to
+represent the bit patterns required as elements of type <TT>char</TT>.
+We could also use the exact-width integer types <tt>int8_t</tt>
+or <tt>uint8_t</tt>.
+These are defined in <tt> stdint.h</tt> in the C standard library.
+
+<P>
+A sample <tt>Makefile</tt> to compile a C program and burn it to the flash
+memory of the ATmega1284P is available 
+<a href="http://www.cs.mun.ca/~paul/cs4723/material/labs/lab1_files/Makefile"> here</a>.
+<P>
+Provide the source code of your implementation as part of your report.
+Demonstrate the working program to the instructor.
+
+<P>
+<h3> Optional:</h3>
+<P>
+Using a second 7-segment display and resistor array,
+display two digits on the pair of displays. This is normally accomplished by
+connecting the each of the grounds of the 7-segment displays to an output
+port, and selecting the particular port to display the value.
+If the program switches from one of the digits to the other fast enough,
+each display can appear to show a separate value continuously.
+This is called {\em time multiplexing}, ans is a common way to implement
+a multi-digit display.
+
+Write a program to exhibit this; e.g., a two-digit counter with a 1
+second delay.
+
+
+<h2> R-R2 Ladder and Digital to Analog Converter (DAC) </h2>
+
+<p>
+    Using 10K and 20K resistors construct the following circuit on
+    the breadboard:
+</p>
+<center>
+<img src="lab1_files/r-r2.png">
+</center>
+<p>
+   Following is a picture of the circuit to be constructed:
+</p>
+<center>
+<img src="lab1_files/r-r2-pic.jpg">
+</center>
+<ol>
+    <li> Connect the GND connection to one of the STK500's GND pins. </li>
+    <li>
+        Connect all possible combinations of GND and V<sub>target</sub>
+        to D0, D1, and D2 and measure Vout with a DVM.
+        Record you measurements in tabular form in your lab report.
+
+<P>
+Is there a pattern to the measured voltages?
+        What do you think would be the effect of adding another stage
+        (resistor pair) to the R-2R ladder?
+
+    </li>
+</ol>
+
+<h2> AVR control of the DAC </h2>
+
+<P>
+Add another stage to the R-2R ladder.
+   Configure bits 0, 1, 2, and 3 of PORTC for output.
+   Connect PORTC, bits 0, 1, 2, and 3, to D0, D1, D2 and D3 of the R-R2 circuit.
+   Write a C program to successively write the numbers 0 to 15 to PORTC,
+   in an infinite loop.
+
+<P>
+Connect an oscilloscope probe to Vout, and observe the output.
+(This waveform is called a ramp, or sawtooth, waveform.)
+Relate the observed output to the voltage measurements tabulated
+earlier. Comment on your observations.
+
+<P>
+Provide the source code for your implementation.
+   Demonstrate the working program to the instructor.
+
+<P>
+What changes would be required to display a triangular (rising and falling at
+the same rate) waveform?
+
+
+<h2> Finding the switching point of an AVR input pin </h2>
+
+Configure bit 7 of PORTD for input. Connect Vout to bit 7 of PORTD.
+   Configure bit 7 of PORTB for output, and connect bit 7 of PORTB to LED7.
+
+<P>
+Modify the program from the previous step to sample bit7 of PORTD, and to
+   turn LED7 on  and reset the counter to 0) if bit7 of PORTD is 1.
+LED7 should be off if bit7 of PORTD is 0.
+
+<P>
+Write the maximum count value to PORTB[0-3], and display this value in binary
+with the on board LEDs. (A 10 pin cable can be used to connect PORTB
+to the LEDs.)
+
+<P>
+Record the binary number output on the LEDs.
+Comment on its value, with reference to the table generated earlier.
+
+<P>
+Provide the source code for your implementation.
+   Demonstrate the working program to the instructor.
+
+</body></html>

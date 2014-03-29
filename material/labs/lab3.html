@@ -1,0 +1,134 @@
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://www.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 Lab 3 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 3: Pulse Width Modulation</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The main goal of this lab is to become familiar with pulse width modulation
+(PWM), use the on-chip timer to generate a PWM outputs,
+and to control a simple PWM device.
+
+<!--
+<h2> Laboratory Report Submission Details </h2>
+<p>
+A laboratory report briefly describing what was done in the lab,
+including any relevant observations, and giving the responses to
+the questions in the laboratory description.
+
+<P>
+Any code written should also be provided, and demonstrated to the
+lab instructor before it is submitted.
+
+<P>
+The lab report is expected at the end of the lab period.
+-->
+
+<h2> Pulse width modulation </h2>
+
+<P>
+This is one of the most common ways to digitally control the intensity
+of certain types of devices (e.g. lights, sound volume, motor speed.)
+
+<h2> A servo motor controller</h2>
+
+<p>
+In this lab, you will extend a servo controller example from class
+to control a servo motor using a pair of push buttons.
+One button will cause the servo motor angle to be increased by a fixed
+amount each time the button is pressed, the other will cause
+it to be decreased. The total number of steps to go from one extreme
+angle to the other should be about 50.
+Use timer/counter1, as in the example.
+
+<p>
+You may use either polling or PCI interrupts to sample the button inputs,
+but there should only be one step for each distinct button press.
+
+<p>
+The keys can be input through  <TT>PORTC</TT>, and the output will be from
+<TT>OC1A</TT> (pin PD5).
+
+<p>
+The servo motor has three wires - a red wire (power) a brown or black wire
+(ground) and an orange or white wire (control).
+The power and ground can be obtained from the STK-500 board.
+
+<p>
+<h3>Optional:</h3>
+Describe how a second servo could be implemented efficiently.
+
+Suppose five servos were to be controlled. Briefly describe one way this
+could be done.
+
+<p>
+<center><img src="lab3_files/servo.jpg"></center>
+
+
+<h2> A LED brightness control </h2>
+
+<P>
+This is a <IT>design</IT> problem, where you are given a required output
+but are free to implement it as you like. In your lab writeup, explain why
+you made the various decisions necessary for the design.
+
+<P>
+The LEDs on the STK-500 have an output circuit which provides nearly
+constant current through the device over a range of input voltages.
+
+<P>
+In order to control their brightness, we can use a PCM, switching on the
+power for a variable amount of time, but at a high frequency
+(at least 100 times per second).
+
+<P>
+Using timer/counter0 in PWM mode (you choose the particular mode, frequency,
+etc.) control one of the LEDs using a pair of buttons (one for up, one for
+down, as in the previous example) over a range of at least 32 different
+brightness levels.
+
+<P>
+Explain why you used any particular parameters in your design
+(refresh frequency, PWM step size, etc.) and the particular mode of
+operation for your counter.
+If it helps your explanation, sketch the waveforms you desire for the output.
+
+Could you implement an independent controller for a second LED using the same
+timer? Briefly explain how, if possible.
+
+<p>
+<h3>Optional:</h3>
+
+<p>
+Implement this second controller, if possible, and demonstrate the independent
+operation to the instructor. Describe the changes required to accomplish this.
+</body></html>

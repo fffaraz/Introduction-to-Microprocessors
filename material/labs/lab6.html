@@ -1,0 +1,194 @@
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://www.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 Lab 6 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 6: Controlling external devices - motors</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The major goal is to interface the AVR to an external device, and have the AVR
+act as a controller for that device. The lab will use motors as the
+external devices.
+
+<P>
+In particular, it will interfacing the AVR to a L293D,
+to control a DC motor.
+It will use the same device, with different control code, to
+control a stepping motor.
+
+<!--
+<h2> Laboratory Report Submission Details </h2>
+<p>
+A laboratory report briefly describing what was done in the lab,
+including any relevant observations, and giving the responses to
+the questions in the laboratory description.
+
+<P>
+Any code written should also be provided, and demonstrated to the
+lab instructor before it is submitted.
+
+<P>
+The lab report is expected at the end of the lab period.
+-->
+
+<h2> Motor control </h2>
+
+<P>
+Controlling real-world devices is perhaps the largest application for
+embedded processing. The capability to perform complex control algorithms,
+possibly adapting to different environments, is a key application
+for such systems.
+
+<P>
+We will look at controlling two different types of motors commonly found in
+small and large control applications.
+
+<h2> Driving a simple DC gear motor with the L293D </h2>
+
+<p>
+The L293D is a half H-bridge driver for DC electric motors.
+They can provide bi-directional control, and isolate the
+motor power supply from the logic driver (the microprocessor,
+in our case.)
+They are often used with pulse width modulation.
+
+<P>
+Following is the pinout for the L293D:
+
+<p>
+<center><img src="lab6_files/l293d.jpg"></center>
+
+<P>
+Construct the circuit depicted in the following diagram.
+Note that only output 1 and 2 are connected to the motor.
+Pin 8 is connected to the target power supply for the motor
+(a battery pack, in our case.) Pin 16 is connected to the logic
+power supply (the SDK-500, in our case.)
+
+<p>
+<center><img src="lab6_files/motor-ckt1.jpg"></center>
+
+<P>
+The speed of the DC motor can be controlled with Pulse Width Modulation (PWM).
+Write and test a program that accepts commands from a user that controls
+the motor's direction and the duty cycle of the PWM.
+The program should accept a line from the USART (terminated by a '<code>\n</code>').
+The first character should be either an 'f' for forward or 'b' for backward.
+An integer specifying the duty cycle from 0 to 255 should follow
+the 'f' or 'b'.
+
+<P>
+A duty cycle of 100 percent is specified with 255.
+The <TT>OC2B</TT> (PWM output) is connected to the <TT>enable1,2</TT> line
+on the L293D.
+
+<P>
+Your program should be constructed with a main routine that accepts user
+commands via the USART.
+If the first character is a 'f', then "Input 1" should be 1 and
+"Input 2" should be 0.
+If the character was a 'b', then "Input 1" should be 0 and "Input 2" should
+be 1.
+The following integer should set the duty cycle.
+
+<P>
+Test the performance of the motor for a reasonable set of input commands,
+and note the results.
+
+<h3> Optional:</h3>
+
+<P>
+Add the required connections to drive a second motor using the same timer
+and L293D controller. The second motor speed and direction should be
+controlled independently of the first motor. This is a technique often used
+steer mobile wheeled robots.
+
+
+<h2> Driving a bipolar stepping motor with the L293D </h2>
+<p>
+Connect the stepping motor as indicated in the following diagram.
+Note that only the motor connections change from the first section.
+
+<p>
+<center><img src="lab6_files/motor-ckt2.jpg"></center>
+
+<P>
+Using the program in the first section as a base, modify the program to
+accept as input a line from the USART containing a direction and a time period.
+The direction is indicated by the character 'f' or 'b', the time period
+by an integer.
+The integer determines the number of milliseconds between changes to the
+stepping motor control.
+A value of 10 would mean that the stepping motor would perform a step
+every 10 milliseconds.
+Configure timer 0 to interrupt the microcontroller every 1&nbsp;mS.
+
+<p>
+A data sheet for the stepping motor is available
+<a href="http://www.cs.mun.ca/~paul/cs4723/material/labs/lab6_files/airpax_lb82273.pdf"> here</a>.
+
+<P>
+The stepping motor should be programmed to perform full and half steps
+all together (e.g., the motor will go from a full step to half step position,
+and then to the next full step position).
+Every time the specified period has occurred, the software will change
+the L293D to cause the next step (see the class notes).
+
+<P>
+For the motor used in the lab, the red--gray wire pair are terminals for one
+coil, and the yellow--black pair for the other coil.
+
+<P>
+The sequence for full step mode is:
+
+
+<P>
+<TABLE>
+<TR> <TD> Step &nbsp </TD> <TD> R &nbsp &nbsp </TD> <TD> Y &nbsp &nbsp </TD> <TD> G &nbsp &nbsp </TD> <TD> B &nbsp &nbsp </TD> </TR>
+<TR> <TD>   1  </TD> <TD> 1 </TD> <TD> 1 </TD> <TD> 0 </TD> <TD> 0 </TD> </TR>
+<TR> <TD>   2  </TD> <TD> 0 </TD> <TD> 1 </TD> <TD> 1 </TD> <TD> 0 </TD> </TR>
+<TR> <TD>   3  </TD> <TD> 0 </TD> <TD> 0 </TD> <TD> 1 </TD> <TD> 1 </TD> </TR>
+<TR> <TD>   4  </TD> <TD> 1 </TD> <TD> 0 </TD> <TD> 0 </TD> <TD> 1 </TD> </TR>
+<TR> <TD>   5  </TD> <TD> 1 </TD> <TD> 1 </TD> <TD> 0 </TD> <TD> 0 </TD> </TR>
+<TR> <TD>   .  </TD> <TD> . </TD> <TD> . </TD> <TD> . </TD> <TD> . </TD> </TR>
+</TABLE><BR>
+
+<P>
+The timers need not be used to generate the steps for the motor; this
+can be done under program control by setting the appropriate bits in PORTD.
+
+<P>
+Test the performance of the motor for a reasonable set of input commands,
+and note the results. In particular, note what happens when the direction
+is changed.
+
+
+</body></html>

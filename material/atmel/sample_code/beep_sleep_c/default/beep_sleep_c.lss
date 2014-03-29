@@ -1,0 +1,185 @@
+
+beep_sleep_c.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000011e  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000378  00000000  00000000  00000174  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000071  00000000  00000000  000004ec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000020  00000000  00000000  0000055d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000033  00000000  00000000  0000057d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000000fb  00000000  00000000  000005b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000000ca  00000000  00000000  000006ab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000014a  00000000  00000000  00000775  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000040  00000000  00000000  000008c0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000000ca  00000000  00000000  00000900  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000013  00000000  00000000  000009ca  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 38 00 	jmp	0x70	; 0x70 <__ctors_end>
+   4:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+   8:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+   c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  10:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  14:	0c 94 57 00 	jmp	0xae	; 0xae <__vector_5>
+  18:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  1c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  20:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  24:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  28:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  2c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  30:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  34:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  38:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  3c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  40:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  44:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  48:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  4c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  50:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  54:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  58:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  5c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  60:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  64:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  68:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+  6c:	0c 94 55 00 	jmp	0xaa	; 0xaa <__bad_interrupt>
+
+00000070 <__ctors_end>:
+  70:	11 24       	eor	r1, r1
+  72:	1f be       	out	0x3f, r1	; 63
+  74:	cf ef       	ldi	r28, 0xFF	; 255
+  76:	d0 e1       	ldi	r29, 0x10	; 16
+  78:	de bf       	out	0x3e, r29	; 62
+  7a:	cd bf       	out	0x3d, r28	; 61
+
+0000007c <__do_copy_data>:
+  7c:	11 e0       	ldi	r17, 0x01	; 1
+  7e:	a0 e0       	ldi	r26, 0x00	; 0
+  80:	b1 e0       	ldi	r27, 0x01	; 1
+  82:	ee e1       	ldi	r30, 0x1E	; 30
+  84:	f1 e0       	ldi	r31, 0x01	; 1
+  86:	02 c0       	rjmp	.+4      	; 0x8c <.do_copy_data_start>
+
+00000088 <.do_copy_data_loop>:
+  88:	05 90       	lpm	r0, Z+
+  8a:	0d 92       	st	X+, r0
+
+0000008c <.do_copy_data_start>:
+  8c:	a0 30       	cpi	r26, 0x00	; 0
+  8e:	b1 07       	cpc	r27, r17
+  90:	d9 f7       	brne	.-10     	; 0x88 <.do_copy_data_loop>
+
+00000092 <__do_clear_bss>:
+  92:	11 e0       	ldi	r17, 0x01	; 1
+  94:	a0 e0       	ldi	r26, 0x00	; 0
+  96:	b1 e0       	ldi	r27, 0x01	; 1
+  98:	01 c0       	rjmp	.+2      	; 0x9c <.do_clear_bss_start>
+
+0000009a <.do_clear_bss_loop>:
+  9a:	1d 92       	st	X+, r1
+
+0000009c <.do_clear_bss_start>:
+  9c:	a0 30       	cpi	r26, 0x00	; 0
+  9e:	b1 07       	cpc	r27, r17
+  a0:	e1 f7       	brne	.-8      	; 0x9a <.do_clear_bss_loop>
+  a2:	0e 94 70 00 	call	0xe0	; 0xe0 <main>
+  a6:	0c 94 8e 00 	jmp	0x11c	; 0x11c <_exit>
+
+000000aa <__bad_interrupt>:
+  aa:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ae <__vector_5>:
+	return(1);
+}
+
+ISR(SIG_PIN_CHANGE1)
+{
+  ae:	1f 92       	push	r1
+  b0:	0f 92       	push	r0
+  b2:	0f b6       	in	r0, 0x3f	; 63
+  b4:	0f 92       	push	r0
+  b6:	11 24       	eor	r1, r1
+  b8:	0f 90       	pop	r0
+  ba:	0f be       	out	0x3f, r0	; 63
+  bc:	0f 90       	pop	r0
+  be:	1f 90       	pop	r1
+  c0:	18 95       	reti
+
+000000c2 <buzz>:
+}
+
+void buzz()
+{
+  c2:	1c 99       	sbic	0x03, 4	; 3
+  c4:	0c c0       	rjmp	.+24     	; 0xde <buzz+0x1c>
+  c6:	20 e2       	ldi	r18, 0x20	; 32
+  c8:	90 e8       	ldi	r25, 0x80	; 128
+	while(!(PINB & (_BV(PB4))))  {
+	// alternately write 1 and 0 to PB5
+		PORTB = _BV(PB5);
+  ca:	25 b9       	out	0x05, r18	; 5
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  cc:	89 2f       	mov	r24, r25
+  ce:	8a 95       	dec	r24
+  d0:	f1 f7       	brne	.-4      	; 0xce <buzz+0xc>
+		_delay_loop_1(128);
+		PORTB = 0;
+  d2:	15 b8       	out	0x05, r1	; 5
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  d4:	89 2f       	mov	r24, r25
+  d6:	8a 95       	dec	r24
+  d8:	f1 f7       	brne	.-4      	; 0xd6 <buzz+0x14>
+  da:	1c 9b       	sbis	0x03, 4	; 3
+  dc:	f6 cf       	rjmp	.-20     	; 0xca <buzz+0x8>
+  de:	08 95       	ret
+
+000000e0 <main>:
+  e0:	80 e2       	ldi	r24, 0x20	; 32
+  e2:	84 b9       	out	0x04, r24	; 4
+  e4:	8f ed       	ldi	r24, 0xDF	; 223
+  e6:	85 b9       	out	0x05, r24	; 5
+  e8:	83 b7       	in	r24, 0x33	; 51
+  ea:	81 7f       	andi	r24, 0xF1	; 241
+  ec:	84 60       	ori	r24, 0x04	; 4
+  ee:	83 bf       	out	0x33, r24	; 51
+  f0:	80 91 6c 00 	lds	r24, 0x006C
+  f4:	80 61       	ori	r24, 0x10	; 16
+  f6:	80 93 6c 00 	sts	0x006C, r24
+  fa:	80 91 68 00 	lds	r24, 0x0068
+  fe:	82 60       	ori	r24, 0x02	; 2
+ 100:	80 93 68 00 	sts	0x0068, r24
+ 104:	d9 9a       	sbi	0x1b, 1	; 27
+ 106:	78 94       	sei
+ 108:	83 b7       	in	r24, 0x33	; 51
+ 10a:	81 60       	ori	r24, 0x01	; 1
+ 10c:	83 bf       	out	0x33, r24	; 51
+ 10e:	88 95       	sleep
+ 110:	83 b7       	in	r24, 0x33	; 51
+ 112:	8e 7f       	andi	r24, 0xFE	; 254
+ 114:	83 bf       	out	0x33, r24	; 51
+ 116:	0e 94 61 00 	call	0xc2	; 0xc2 <buzz>
+ 11a:	f6 cf       	rjmp	.-20     	; 0x108 <main+0x28>
+
+0000011c <_exit>:
+ 11c:	ff cf       	rjmp	.-2      	; 0x11c <_exit>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/AVR/AVR1010</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/AVR/AVR1010</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/AVR/">Parent Directory</a>                             -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="doxyfile.doxygen">doxyfile.doxygen</a>        08-Jul-2011 15:13   62K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="power_consumption.ewp">power_consumption.ewp</a>   08-Jul-2011 15:13   52K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="sleep_example.ewp">sleep_example.ewp</a>       08-Jul-2011 15:13   52K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc32_power_consumption.ewp">rtc32_power_consumpt..&gt;</a> 08-Jul-2011 15:13   52K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xplain_power_consumption.ewp">xplain_power_consump..&gt;</a> 08-Jul-2011 15:13   52K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc32_sleep_example.ewp">rtc32_sleep_example.ewp</a> 08-Jul-2011 15:13   52K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xplain_sleep_example.ewp">xplain_sleep_example..&gt;</a> 08-Jul-2011 15:13   52K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lowpower_macros.h">lowpower_macros.h</a>       08-Jul-2011 15:13   11K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc32_driver.c">rtc32_driver.c</a>          08-Jul-2011 15:13  8.3K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="sleepmgr.c">sleepmgr.c</a>              08-Jul-2011 15:13  7.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_power_consumption.c">xmega_power_consumpt..&gt;</a> 08-Jul-2011 15:13  6.6K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_sleep_example.c">xmega_sleep_example.c</a>   08-Jul-2011 15:13  6.6K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xplain_power_consumption.c">xplain_power_consump..&gt;</a> 08-Jul-2011 15:13  6.5K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xplain_sleep_example.c">xplain_sleep_example.c</a>  08-Jul-2011 15:13  6.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc_driver.h">rtc_driver.h</a>            08-Jul-2011 15:13  6.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_rtc32_power_consumption.c">xmega_rtc32_power_co..&gt;</a> 08-Jul-2011 15:13  6.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc_driver.c">rtc_driver.c</a>            08-Jul-2011 15:13  6.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_rtc32_sleep_example.c">xmega_rtc32_sleep_ex..&gt;</a> 08-Jul-2011 15:13  6.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="avr_compiler.h">avr_compiler.h</a>          08-Jul-2011 15:13  5.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc32_driver.h">rtc32_driver.h</a>          08-Jul-2011 15:13  5.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_power_consumption.aps">xmega_power_consumpt..&gt;</a> 08-Jul-2011 15:13  5.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_rtc32_power_consumption.aps">xmega_rtc32_power_co..&gt;</a> 08-Jul-2011 15:13  5.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xplain_power_consumption.aps">xplain_power_consump..&gt;</a> 08-Jul-2011 15:13  5.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_rtc32_sleep_example.aps">xmega_rtc32_sleep_ex..&gt;</a> 08-Jul-2011 15:13  5.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xplain_sleep_example.aps">xplain_sleep_example..&gt;</a> 08-Jul-2011 15:13  5.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="xmega_sleep_example.aps">xmega_sleep_example.aps</a> 08-Jul-2011 15:13  5.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="config_sleepmgr.h">config_sleepmgr.h</a>       08-Jul-2011 15:13  5.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="documentation.h">documentation.h</a>         08-Jul-2011 15:13  4.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="ccpwrite.c">ccpwrite.c</a>              08-Jul-2011 15:13  3.6K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lowpower.c">lowpower.c</a>              08-Jul-2011 15:13  3.6K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="sleepmgr.h">sleepmgr.h</a>              08-Jul-2011 15:13  3.2K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lowpower.h">lowpower.h</a>              08-Jul-2011 15:13  2.8K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="ccpwrite.h">ccpwrite.h</a>              08-Jul-2011 15:13  2.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="avr1010_IAR_workspace.eww">avr1010_IAR_workspac..&gt;</a> 08-Jul-2011 15:13  565   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="readme.html">readme.html</a>             08-Jul-2011 15:13  345   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="doxygen/">doxygen/</a>                08-Jul-2011 15:13    -   
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

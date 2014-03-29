@@ -1,0 +1,158 @@
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://www.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 Lab 5 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 5: Asynchronous communication - the USART</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The main goal of this lab is to become familiar with the USART port,
+and with asynchronous data communication. The C standard I/O functions
+will also be used.
+
+<!--
+<h2> Laboratory Report Submission Details </h2>
+<p>
+A laboratory report briefly describing what was done in the lab,
+including any relevant observations, and giving the responses to
+the questions in the laboratory description.
+
+<P>
+Any code written should also be provided, and demonstrated to the
+lab instructor before it is submitted.
+
+<P>
+The lab report is expected at the end of the lab period.
+-->
+
+<h2> Asynchronous communication - USART </h2>
+
+<P>
+The USART, particularly in asynchronous mode, is a common interface
+to peripheral devices.
+It uses a small number of pins, and can maintain a reasonable data
+transfer rate.
+Its most popular communication interface, the RS232 port, is the
+classical interface to terminal devices, dating back to the
+teletype terminals.
+
+
+<h2> Communication between an RS232 port and the the SPI port </h2>
+
+<p>
+In this lab, you will input characters through the RS232 port of the STK-500
+display the character on the LEDs, and output the character through the
+SPI port.
+
+<P>
+The value returned from the SPI input will be echoed back to the terminal
+through the RS232 port.
+
+<P>
+The function can be tested by connecting the output (the <TT>MOSI</TT> pin)
+to the input (the <TT>MISO</TT> pin) and displaying the output on the LEDs.
+
+<P>
+The STK500 has a RS232 driver built into the board. Recall that the RS232
+standard requires positive and negative voltages (3 to 15 volts,
+and -15 to -3 volts) for 0 and 1 respectively.
+
+<P>
+The two pins  labeled <TT>RXD</TT> and <TT>TXD</TT> at <TT>RS232 SPARE</TT>
+(between LEDs 4 and 5) can be used to connect to the RS232 driver.
+They can be connected directly to the USART pins <TT>RXD0</TT> and <TT>TXD0</TT>
+directly (pins <TT>PD0</TT> and <TT>PD1</TT>).
+
+<P>
+In order to exercise this program, there needs to be a terminal connected
+to the device, configured to run at 9600 baud.
+You can use <TT> putty</TT>, <TT >Hyperterminal</TT>,
+or any other terminal emulator for this.
+
+<P>
+The code supplied in class sets up the terminal output as <TT>stdin</TT>
+and the terminal input as <TT>stdout</TT>.
+Try configuring the terminal input as <TT>stderr</TT>.
+
+<h2> Configuring a shift register (74HC595) as a SPI slave </h2>
+
+<P>
+We will add a shift register and LED array to display the value output
+from the SPI port. The pin configuration for the 74HC595 shift register
+is in the following figure:
+
+<p>
+<center><img src="lab5_files/74hc595.jpg"></center>
+
+<P>
+To use it as an SPI device, we need to
+determine the connections for <TT>MOSI</TT>, <TT>MISO</TT>, <TT>SCK</TT>,
+and the device select <TT>SS</TT>.
+
+<P>
+From the data sheet, the pin <TT>RCK</TT> enables transfer of the input to
+the output on its rising edge, so we can use it as SS.
+Serial input (<TT>SER</TT>) can be connected to <TT>MOSI</TT>.
+Serial output (<TT> Q'<sub>H</sub></TT>) can be connected to <TT>MISO</TT>.
+The clock input (<TT>SCK</TT>) is connected to <TT>SCK</TT> from the SPI port.
+
+<P>
+There are two other inputs, <TT>SCLR</TT>, and <TT>G</TT>.
+The <TT>G</TT> input is a kind of ``device select'' which enables the outputs
+when it is set low, so we can tie it to ground.
+The <TT>SCLR</TT> input clears the shift register when it is set low, so
+we can tie it high.
+
+<P>
+The outputs can then be connected to the LED array through a resistor array,
+as for the 7 segment display.
+
+<P>
+What is the output on the terminal in this configuration? Explain.
+
+<P>
+Try configuring the SPI port as <TT>stdout</TT>, with the terminal
+as <TT>stdin</TT> and <TT>stderr</TT>.
+Is this a good configuration for this example? Why or why not?
+
+<p>
+<h3>Optional:</h3>
+
+<p>
+Replace the SPI port with the second serial port, in SPI mode.
+Describe in detail the configuration (settings of the register values)
+required for this.
+
+<p>
+<center><img src="lab5_files/lab5_setup.jpg"></center>
+
+
+</body></html>

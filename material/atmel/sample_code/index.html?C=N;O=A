@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=D">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/">Parent Directory</a>                             -   
+<img src="/icons/compressed.gif" alt="[   ]"> <a href="AVRButterfly_rev07.zip">AVRButterfly_rev07.zip</a>  16-Oct-2008 12:17   65K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="beep-timer.c">beep-timer.c</a>            22-Jan-2008 09:16  1.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="beep-timer.h">beep-timer.h</a>            22-Jan-2008 09:16  189   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="beep-timer/">beep-timer/</a>             22-Jan-2008 09:16    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="beep.asm">beep.asm</a>                02-Dec-2007 16:47  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="beep.c">beep.c</a>                  02-Dec-2007 17:10  789   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="beep_asm/">beep_asm/</a>               02-Dec-2007 23:40    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="beep_c/">beep_c/</a>                 02-Dec-2007 23:40    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="beep_sleep.asm">beep_sleep.asm</a>          02-Dec-2007 18:01  2.8K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="beep_sleep.c">beep_sleep.c</a>            02-Dec-2007 18:18  1.1K  
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="beep_sleep_asm/">beep_sleep_asm/</a>         02-Dec-2007 23:40    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="beep_sleep_c/">beep_sleep_c/</a>           02-Dec-2007 23:40    -   
+<img src="/icons/compressed.gif" alt="[   ]"> <a href="bf_gcc_20070517b.zip">bf_gcc_20070517b.zip</a>    16-Oct-2008 12:17   78K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="copyc-d.asm">copyc-d.asm</a>             02-Dec-2007 13:48  1.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="copyc_d.asm">copyc_d.asm</a>             02-Dec-2007 16:44  1.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="copyc_d.c">copyc_d.c</a>               02-Dec-2007 13:48  240   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="copyc_d/">copyc_d/</a>                02-Dec-2007 23:40    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="fence25_c/">fence25_c/</a>              26-Nov-2013 10:40    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="fencetime/">fencetime/</a>              22-Jun-2009 16:24    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="motor_demo_fob/">motor_demo_fob/</a>         16-Mar-2010 09:19    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="motor_demo_usart/">motor_demo_usart/</a>       07-Mar-2011 15:20    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="nordic/">nordic/</a>                 23-Oct-2008 14:17    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="nordic1/">nordic1/</a>                20-Dec-2007 14:03    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc.c">rtc.c</a>                   22-Jan-2008 23:56  1.5K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc.h">rtc.h</a>                   22-Jan-2008 23:56  314   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="rtc/">rtc/</a>                    22-Jan-2008 23:55    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="rtc_fence.c">rtc_fence.c</a>             02-Dec-2007 13:48  2.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="spi.c">spi.c</a>                   05-Dec-2007 23:34  1.3K  
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="spi/">spi/</a>                    31-Jan-2008 11:57    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="stdio.c">stdio.c</a>                 02-Dec-2007 14:58  398   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="stdiodemo/">stdiodemo/</a>              09-Mar-2011 13:49    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="stopwatch/">stopwatch/</a>              26-Sep-2008 11:27    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="usart0/">usart0/</a>                 02-Feb-2010 17:30    -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="usart_spi/">usart_spi/</a>              20-Feb-2008 14:47    -   
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

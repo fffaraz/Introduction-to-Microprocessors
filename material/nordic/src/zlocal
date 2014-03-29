@@ -1,0 +1,89 @@
+36c36
+< 	Initialize(); //initialize PLL, IO, UART, SPI, set up nRF24L01 as TX
+---
+> 	Initialize(); //initialize IO, UART, SPI, set up nRF24L01 as TX
+38d37
+< 	//main program loop
+46a46
+> 			
+49,50c49,50
+< 			//wait until the packet has been sent or the maximum number of retries has been active
+< 			while(!(nrf24l01_irq_pin_active() && (nrf24l01_irq_tx_ds_active() || nrf24l01_irq_max_rt_active())));
+---
+> 			//wait until the packet has been sent or the maximum number of retries has been reached
+> 			while(!(nrf24l01_irq_pin_active() && nrf24l01_irq_tx_ds_active()));
+52,57c52,53
+< 			//check to see if the maximum number of retries has been hit.  if not, wait for the RX device
+< 			// to send the char back.  if so, assume the packet is lost and send "*" back to UART
+< 			if(!nrf24l01_irq_max_rt_active())
+< 			{
+< 				nrf24l01_irq_clear_all(); //clear all interrupts in the 24L01
+< 				nrf24l01_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
+---
+> 			nrf24l01_irq_clear_all(); //clear all interrupts in the 24L01
+> 			nrf24l01_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
+59,61c55,62
+< 				//wait a while to see if we get the data back (change the loop maximum and the lower if
+< 				//  argument (should be loop maximum - 1) to lengthen or shorten this time frame
+< 				for(count = 0; count < 20000; count++)
+---
+> 			//wait a while to see if we get the data back (change the loop maximum and the lower if
+> 			//  argument (should be loop maximum - 1) to lengthen or shorten this time frame
+> 			for(count = 0; count < 20000; count++)
+> 			{
+> 				//check to see if the data has been received.  if so, get the data and exit the loop.
+> 				//  if the loop is at its last count, assume the packet has been lost and set the data
+> 				//  to go to the UART to "?".  If neither of these is true, keep looping.
+> 				if((nrf24l01_irq_pin_active() && nrf24l01_irq_rx_dr_active()))
+63,74c64,65
+< 					//check to see if the data has been received.  if so, get the data and exit the loop.
+< 					//  if the loop is at its last count, assume the packet has been lost and set the data
+< 					//  to go to the UART to "?".  If neither of these is true, keep looping.
+< 					if((nrf24l01_irq_pin_active() && nrf24l01_irq_rx_dr_active()))
+< 					{
+< 						nrf24l01_read_rx_payload(&data, 1); //get the payload into data
+< 						break;
+< 					}
+< 					
+< 					//if loop is on its last iteration, assume packet has been lost.
+< 					if(count == 19999)
+< 						data = '?';
+---
+> 					nrf24l01_read_rx_payload(&data, 1); //get the payload into data
+> 					break;
+77,81c68,70
+< 				nrf24l01_irq_clear_all(); //clear interrupts again
+< 				printf("%c", data); //print the received data (or ? if none) to the screen
+< 			
+< 				DelayUS(130); //wait for receiver to come from standby to RX
+< 				nrf24l01_set_as_tx(); //resume normal operation as a TX
+---
+> 				//if loop is on its last iteration, assume packet has been lost.
+> 				if(count == 19999)
+> 					data = '?';
+83,89c72,78
+< 			else
+< 			{
+< 				nrf24l01_flush_tx(); //get the unsent character out of the TX FIFO
+< 				nrf24l01_irq_clear_all(); //clear all interrupts
+< 				printf("*"); //print "*" to the screen to show that the receiver did not receive the packet
+< 			}
+< 									
+---
+> 			
+> 			nrf24l01_irq_clear_all(); //clear interrupts again
+> 			printf("%c", data); //print the received data (or ? if none) to the screen
+> 		
+> 			DelayUS(130); //wait for receiver to come from standby to RX
+> 			nrf24l01_set_as_tx(); //resume normal operation as a TX
+> 											
+101c90
+< 	nrf24l01_initialize_debug(false, 1, true); //initialize the 24L01 to the debug configuration as TX, 1 data byte, and auto-ack enabled
+---
+> 	nrf24l01_initialize_debug(false, 1, false); //initialize the 24L01 to the debug configuration as TX, 1 data byte, and auto-ack disabled
+120,121c109,110
+< 	PORTAbits.RA0 = ~PORTAbits.RA0;
+< }	
+---
+> 	PORTAbits.RA0 = ~PORTAbits.RA0; //invert the bit that controls the LED
+> }

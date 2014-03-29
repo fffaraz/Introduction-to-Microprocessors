@@ -1,0 +1,55 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.13</VERSION>
+ <DEVICE>ATmega644</DEVICE>
+ <WORKING_DIR>E:\course\4723\atmel\sample_code\beep_asm</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files\Atmel\AVR Tools\AvrAssembler2\Appnotes\m644def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\course\4723\atmel\sample_code\beep_asm\beep_asm.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>E:\course\4723\atmel\sample_code\beep_asm\beep_asm.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>E:\course\4723\atmel\sample_code\beep_asm\beep_asm.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <VECTS><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>7</LINE></VECTS>
+  <RESET><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>66</LINE></RESET>
+  <EXT_INT0><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>37</LINE></EXT_INT0>
+  <EXT_INT1><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>38</LINE></EXT_INT1>
+  <EXT_INT2><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>39</LINE></EXT_INT2>
+  <PC_INT0><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>40</LINE></PC_INT0>
+  <PC_INT1><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>41</LINE></PC_INT1>
+  <PC_INT2><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>42</LINE></PC_INT2>
+  <PC_INT3><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>43</LINE></PC_INT3>
+  <WDT><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>44</LINE></WDT>
+  <TIMER2_COMPA><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>45</LINE></TIMER2_COMPA>
+  <TIMER2_COMPB><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>46</LINE></TIMER2_COMPB>
+  <TIMER2_OVF><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>47</LINE></TIMER2_OVF>
+  <TIMER1_CAPT><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>48</LINE></TIMER1_CAPT>
+  <TIMER1_COMPA><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>49</LINE></TIMER1_COMPA>
+  <TIMER1_COMPB><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>50</LINE></TIMER1_COMPB>
+  <TIMER1_OVF><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>51</LINE></TIMER1_OVF>
+  <TIMER0_COMPA><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>52</LINE></TIMER0_COMPA>
+  <TIMER0_COMPB><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>53</LINE></TIMER0_COMPB>
+  <TIMER0_OVF><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>54</LINE></TIMER0_OVF>
+  <SPI_STC><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>55</LINE></SPI_STC>
+  <USART0_RX><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>56</LINE></USART0_RX>
+  <USART0_UDRE><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>57</LINE></USART0_UDRE>
+  <USART0_TX><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>58</LINE></USART0_TX>
+  <ANALOG_COMP><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>59</LINE></ANALOG_COMP>
+  <ADC_INT><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>60</LINE></ADC_INT>
+  <EE_READY><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>61</LINE></EE_READY>
+  <TWI><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>62</LINE></TWI>
+  <SPM_READY><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>63</LINE></SPM_READY>
+  <LOOP><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>72</LINE></LOOP>
+  <SPIN1><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>79</LINE></SPIN1>
+  <SPIN2><FILE>E:\course\4723\atmel\sample_code\beep_asm\beep.asm</FILE><LINE>86</LINE></SPIN2>
+ </LABELS>
+</ASSEMBLER_INFO>

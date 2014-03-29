@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\task4 - AWeX\awex.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task2 - Compare Match\comparematch.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task1 - Starting the Timer\startingthetimer.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task3 - Waveform Generation\waveformgeneration.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

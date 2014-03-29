@@ -1,0 +1,231 @@
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 lab 0 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 0: Introduction to the laboratory equipment</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The main goal of this lab is to become familiar with the main equipment
+that will be used in subsequent labs.
+
+<P>
+
+<UL>
+<LI>A microcomputer with a serial (RS-232) port
+</LI>
+<LI>The STK-500 programmer
+</LI>
+<LI>Multimeter
+</LI>
+<LI>Oscilloscope
+</LI>
+<LI>Breadboard
+</LI>
+</UL>
+
+<P>
+
+<P><P>
+<BR>
+<h2>The STK-500</h2>
+
+<P>
+This is the primary tool for programming the Atmel processors we will be
+using in the subsequent labs. It also contains several other components
+which may allow us to test parts of our programs.
+Generally, we will use the STK-500 as a simple development platform.
+
+<P>
+The STK-500 is powered from a 9 - 15V DC supply capable of providing at
+least 0.5 amps of current.
+(We will use 12V DC power supplies capable of supplying about 1 amp.)
+There is a power (on/off) switch near the power supply connector.
+
+<P>
+There are two 9-pin RS-232 connectors on the board. the one closest to the
+power connector, labeled <TT>RS232 CTRL</TT>, is the connection used to
+communicate with the STK-500.
+
+<P>
+Turn on the power switch, and
+connect a led input to one of the VTG pins. What happens? 
+
+<P>
+Connect a led input to one of the GND pins. What happens? 
+
+<P>
+Power down the STK-500, then connect the SWITCH bank to the LED bank
+using one of the 10-wire cable connectors.
+Then turn the power back on.
+(We normally power down the STK-500 whenever we make connections to it).
+What happens when a switch is pressed?
+
+<P>
+Power down the STK-500 and
+connect the RS-232 cable between the processor and the STK-500
+(to <TT>RS232 CTRL</TT>).
+
+<P>
+In Linux, the program <TT>avrdude</TT> can be used to actually program the
+processor in the STK-500, and also determine the state of the programmer.
+The latter is what we do next.
+
+<P>
+Execute the command:
+
+<P>
+<TT>avrdude -P /dev/ttyS0 -t -p m1284p -c stk500v2</TT>
+
+<P>
+
+<P>
+Then type the following commands:
+
+<P>
+
+<UL>
+<LI>help
+</LI>
+<LI>part
+</LI>
+<LI>sig
+</LI>
+<LI>dump lfuse
+</LI>
+<LI>dump hfuse
+</LI>
+<LI>dump efuse
+</LI>
+<LI>parms
+</LI>
+<LI>quit
+</LI>
+</UL>
+
+<P>
+Ensure that you understand the outputs.
+In particular, what do the fuse settings mean?
+Refer to the data sheet for the ATmega1284p to determine these.
+
+<P>
+What is the target voltage for the device? Measure VTG using the
+multimeter to confirm this value.
+(Set the multimeter to the 20V range.
+Then touch the + lead (red) to VTG, - lead (black) to GND.)
+
+<P>
+In Windows, the AVR Studio 4 environment provides a menu for displaying the
+fuse and other configurational settings.
+
+<P>
+Next we will compile and run a simple assembler program.
+the program simply copies the input at port D to output at port C.
+
+<h2>Programming a chip </h2>
+
+<P>
+Now we will actually write a program into the memory of the ATMega1284p processor
+on the STK-500 board.
+
+<P>
+The program is the same as in the class notes, and can be downloaded from
+the lab home page or
+<a href="http://www.cs.mun.ca/~paul/cs4723/material/labs/lab0_files/copyd-c.S"> here</a>.
+
+<P>
+After the program is compiled, it can be loaded by the avrdude program.
+Instructions for compiling the program are included as comments near
+the top of the program file.
+The STK can be programmed using 
+
+<P>
+<code> avrdude -P /dev/ttyS0  -p m1284p -c stk500v2 -U flash:w:app.hex </code>
+
+<P>
+(here, <TT>app</TT> is the name of the program).
+
+<P>
+In Windows, it  can be programmed through the AVR Studio 4 environment.
+
+<P>
+After programming the device, turn off the power and connect one of the 10 pin
+cables between the switch and port D, and the the other between the LEDs
+and port C.
+(Show this to the instructor before turning the power back on.)
+
+<P>
+Then power up the device, and observe what happens when you press one
+or more buttons.
+
+
+<h2>Another program</h2>
+
+<P>
+This is the second program from class, and it uses a single pin from port B
+(Pin B4) as input, and outputs a sequence of 0 1 0 1 ... with a period
+determined by the program code to Port B5 as long as the button is pressed.
+
+<P>
+This program can also be downloaded from the home page, or 
+<a href="http://www.cs.mun.ca/~paul/cs4723/material/labs/lab0_files/beep.S"> here</a>.
+
+<P>
+It can be assembled and downloaded to the STK-500 similarly.
+
+<P>
+For this example, use the wire connectors to connect a switch to pin B4,
+and connect a small speaker between pin B5 and ground. This can conveniently
+be done using Expansion Connector 1 on the STK-500. (Insert the speaker
+pins in socket positions 21 and 25 - see the example board in the lab).
+<p>
+<center><img src="lab0_files/lab0_x.jpg"></center>
+
+<P>
+Connect an oscilloscope probe to the output pin (pin B5) to see the shape
+of the waveform generated.
+
+<P>
+Modify the frequency of the code (changing the loop variables, for example)
+and observe the different frequencies.
+
+<P>
+This same method can be used to vary the intensity of and LED, for example,
+or even to play music. (We will find more efficient ways to do this later.)
+
+<P>
+<H3> Optional: </H3>
+
+<P>
+Modify the assembly language program so the sound frequency varies
+continuously while the button is pressed.
+</BODY>
+</HTML>

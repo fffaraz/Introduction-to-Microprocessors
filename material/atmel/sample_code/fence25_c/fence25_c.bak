@@ -1,0 +1,253 @@
+#include <avr/io.h>
+#include <util/delay.h>
+#include<avr/interrupt.h>
+#include<avr/sleep.h>
+#include<avr/pgmspace.h>
+#include<avr/eeprom.h>
+
+#define INPIN		PB3
+#define OUTPIN		PB1
+#define TESTIN		PB0
+#define PICKTUNE	PB2
+#define FOILEPEE	PB3
+
+#define TESTFREQ	64;
+#define FOIL_T		140;
+#define EPEE_HITTIME	20;
+
+void int_handle(void);
+uint8_t getmode(void);
+void foil_handle(void);
+void epee_handle(void);
+void hit(void);
+
+uint8_t* PLAYTIME;
+volatile uint8_t BUZZTIME;
+
+const uint8_t buzz1[] PROGMEM = {  // a siren?
+32,127,8,159,32,127,8,159,32,127,8,159,32,127,8,159,32,127,8,159,32,127,8,159,0,1};
+
+const uint8_t buzz2[] PROGMEM = {  // another siren?
+8,127,32,142,8,127,32,142,8,127,32,142,8,127,32,142,8,127,32,142,8,127,32,142,8,127,0,1};
+
+const uint8_t mary[] PROGMEM = {  // mary had a little lamb
+32,127,32,142,32,159,32,142,28,127,8,1,28,127,8,1,60,127,0,1};
+
+const uint8_t minstrel[] PROGMEM = {  //the minstrel boy
+32, 253, 48, 190, 16, 150, 16, 142, 16, 150, 16, 169, 16, 190, 32, 150, 32, 127, 32, 95, 0, 1};
+
+const uint8_t twinkle[] PROGMEM = {  // twinkle twinkle little star
+28,239, 8,1, 28,239, 8,1, 28,159, 8,1, 28,159, 8,1, 28,142, 8,1, 28,142,60,159,0,1};
+
+const uint8_t ode_to_joy[] PROGMEM = {  // ode to joy
+28,190, 8,1, 28,190, 8,1, 28,179, 8,1, 28,159, 8,1, 28,159, 8,1, 28,179, 8,1, 28,190, 8,1, 28,213, 8,1, 28,239, 8,1, 28,239, 8,1, 28,213, 8,1, 28,190, 8,1, 28,190, 8,1, 28,213, 8,1, 60,213 ,0,1};
+
+const uint8_t beethoven5[] PROGMEM = {  // Beethoven's fifth
+14,190, 4,1, 14,190, 4,1, 14,190, 4,1, 72,239,  18,1, 14,213, 4,1, 14,213, 4,1, 14,213, 4,1, 72,253 ,0,1};
+
+const uint8_t rockyou[] PROGMEM = {  // we will rock you
+56,119, 8,1, 56,127, 8,1, 56,142, 8,1, 56,159, 4,1, 24,142, 4,1, 24,142, 4,1, 0,1};
+
+const uint8_t fanfare[] PROGMEM = {  // fanfare
+56,239, 4,1, 28,239, 4,1, 28,239, 4,1, 56, 190, 8,1, 56,239, 8,1, 56,159, 4,1, 28,159, 4,1, 28,159, 4,1, 56,127, 8,1, 56,159, 0,1};
+
+const uint8_t cucaracha[] PROGMEM = {  // cucaracha
+21,159, 4,1, 21,159, 2,1, 21,59, 4,1, 42,119, 8,1, 21,95, 2,1, 21,95, 4,1, 21,159, 4,1, 21,159, 4,1, 42,119, 6,1, 21,95, 2,1, 84,95, 21, 119, 4,1, 21,119, 4,1, 21,127, 2,1, 21,127, 2,1, 21,142, 2,1,21,142, 2,1, 84,159,  0,1 };
+
+const uint8_t* list[] PROGMEM = {buzz1, buzz2, mary, minstrel, twinkle, ode_to_joy, beethoven5, rockyou, fanfare, cucaracha};
+
+// uint8_t ee_foilsong __attribute__((section(".eeprom"))) = 6;
+// uint8_t ee_epeesong __attribute__((section(".eeprom"))) = 9;
+uint8_t ee_foilsong EEMEM = 3;
+uint8_t ee_epeesong EEMEM = 6;
+
+int main(void)
+{
+uint8_t  mode, i;
+uint8_t* foil_song;
+uint8_t* epee_song;
+
+// set up port B
+
+	DDRB  = _BV(OUTPIN);	// set output pin
+	PORTB = ~_BV(OUTPIN);	// set pullups on inputs
+
+// set test mode --- play all "hit" sounds if TESTIN is 0
+
+	while (!(PINB & _BV(TESTIN))) {
+               for (i=0; i<(sizeof(list)/sizeof(list[0])); i++) {
+                        PLAYTIME = (uint8_t*) (pgm_read_word(list+i));
+                        hit();
+						_delay_loop_1(250);	// delay 1000 cycles
+
+						// select tune using PICKTUNE
+                        if (!(PINB & _BV(PICKTUNE))){
+                                if (PINB & _BV(FOILEPEE))
+                                        eeprom_write_byte(&ee_epeesong, i);
+                                else
+                                        eeprom_write_byte(&ee_foilsong, i);
+                                break;
+                        }
+
+                }
+
+	}
+
+	i = eeprom_read_byte(&ee_foilsong);
+	if (i < (sizeof(list)/sizeof(list[0])))
+		foil_song = (uint8_t*) (pgm_read_word(list+i));
+	else
+		foil_song = (uint8_t*) (pgm_read_word(list));
+
+	i = eeprom_read_byte(&ee_epeesong);
+	if (i < (sizeof(list)/sizeof(list[0])))
+		epee_song = (uint8_t*) (pgm_read_word(list+i));
+	else
+		epee_song = (uint8_t*) (pgm_read_word(list+1));
+
+// infinite loop to wait for PCI interrupt and process hit
+
+	while(1) {
+		cli();
+		mode = getmode();
+	// got mode --- foil or !foil
+
+		DDRB = 0;	    // set all pins to input to save power
+		PORTB = 0b111111;	// set pullups
+
+		set_sleep_mode(SLEEP_MODE_PWR_DOWN);   // set sleep mode
+
+	// set up PCI interrupts 
+
+		PCMSK |= _BV(INPIN);	// enable PCI interrupt on INPIN
+		GIFR   = _BV(PCIF);	// clear any pending PCI interrupts
+		GIMSK |= _BV(PCIE);     // enable pin change interrupt
+
+		sei();                         // enable interrupts
+
+	// go to sleep until there is an interrupt
+		sleep_mode();
+
+		if (mode) {
+			PLAYTIME = epee_song;
+			epee_handle();
+		}
+		else {
+			PLAYTIME = foil_song;
+			foil_handle();
+		}
+	
+}	// end infinite while loop
+}
+
+ISR(PCINT0_vect)
+{
+}
+
+ISR(TIM0_COMPA_vect)
+{
+	BUZZTIME--;
+}
+
+
+void foil_handle()
+{
+// switch normally closed. For hit, switch must be open for 13 -15 ms.
+//  enable interupt on switch open - switch reopenings restart the process
+//  uses a delay loop to time hit
+//  after detecting a valid hit, output "hit" for 2 s
+	uint8_t i, test;
+
+	for (i = 0; i < 168; i++) {
+		test = PINB & _BV(INPIN);
+		if (!test) return;
+		_delay_loop_1(25);	// delay 100 cycles
+	}
+	cli();		// 	disable interrupts
+	hit();
+}
+
+void epee_handle()
+{
+// switch normally open. For hit, switch must be open for 2-4 ms.
+//  enable interupt on switch closed - switch reclosings restart the process
+//  uses a delay loop to time hit
+//  after detecting a valid hit, output "hit" for 2 s
+	uint8_t i, test;
+
+	for (i = 0; i < 25; i++) {
+		test = PINB & _BV(INPIN);
+		if (test) return;
+		_delay_loop_1(25);	// delay 100 cycles
+	}
+	cli();		// 	disable interrupts
+	hit();
+}
+
+void hit()
+{
+// timer 1 outputs a tone,
+// timer 0 is set to interrupt about every 1/128 second
+
+	uint8_t time, i;
+
+	// set OUTPIN to output
+	DDRB = _BV(OUTPIN);
+
+	// set up oscillator with timer 1
+	GTCCR = 0;
+	// set mode mode CTC (clear on match), toggle output, source clk/2
+	TCCR1 = _BV(CTC1)|_BV(COM1A0)|_BV(CS11); 
+
+	set_sleep_mode(SLEEP_MODE_IDLE); 
+
+	// set up timer0 (2 seconds)
+	TCCR0A = _BV(WGM01);				// timer0 in CTC mode
+	TCCR0B = _BV(CS01) | _BV(CS00);		// clk/64
+//	OCR0A = 122;						// 1/128 second timer
+	OCR0A = 140;
+	TIMSK = _BV(OCIE0A);				// interrupt at count
+	TIFR = 0;				// clear any pending timer interrrupts
+	GIMSK = 0;				// disable external interrupts
+	sei();
+	time = pgm_read_byte(&PLAYTIME[0]);
+	i = 0;
+while (time)  {
+	BUZZTIME = time;
+	i++;
+	OCR1C = pgm_read_byte(&PLAYTIME[i]);
+	i++;
+
+	while (BUZZTIME >0) {
+		sleep_mode();
+	}
+	time = pgm_read_byte(&PLAYTIME[i]);
+}
+
+	DDRB = 0;
+	TCCR1 = 0;			// turn off buzzer
+	BUZZTIME = 30;			// wait 1/4 second
+		while (BUZZTIME >0) {
+		sleep_mode();
+	}
+	TIMSK = 0;			// turn off timer interrupt
+	TCCR0B = 0;			// turn off timer 0
+
+	return;
+}
+
+
+uint8_t getmode()	// get initial state --- foil or epee
+{
+	uint8_t test, foil;
+
+	test = PINB & _BV(INPIN);
+	_delay_loop_1(255);	// debounce input
+	foil =  PINB & _BV(INPIN);
+	while (foil != test) {
+		_delay_loop_1(255);
+		test = foil;
+		foil = PINB & _BV(INPIN);
+	}
+return (foil);
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/examples/stdiodemo</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/examples/stdiodemo</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=D">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/examples/">Parent Directory</a>                             -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="hd44780.c">hd44780.c</a>               13-Feb-2008 23:51  4.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="hd44780.h">hd44780.h</a>               13-Feb-2008 23:51  2.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lcd.c">lcd.c</a>                   13-Feb-2008 23:51  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lcd.h">lcd.h</a>                   13-Feb-2008 23:51  727   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="uart.h">uart.h</a>                  13-Feb-2008 23:51  1.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="defines.h">defines.h</a>               13-Feb-2008 23:51  928   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="stdiodemo.c">stdiodemo.c</a>             13-Feb-2008 23:51  2.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="uart.c">uart.c</a>                  13-Feb-2008 23:51  4.1K  
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

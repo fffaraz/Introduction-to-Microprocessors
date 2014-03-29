@@ -1,0 +1,14 @@
+38c38
+<    {		   
+---
+>    { 
+50,51c50,51
+<       //wait until the packet has been sent or the maximum number of retries has been reached
+< 		while(!(nrf24l01_irq_pin_active() && (nrf24l01_irq_tx_ds_active() || nrf24l01_irq_max_rt_active()))); 
+---
+>       //wait until the packet has been sent 
+>       while(!(nrf24l01_irq_pin_active() && nrf24l01_irq_tx_ds_active())); 
+65c65
+<    nrf24l01_initialize_debug(true, 1, true); //initialize the 24L01 to the debug configuration as TX, 1 data byte, and auto-ack disabled
+---
+>    nrf24l01_initialize_debug(true, 1, false); //initialize the 24L01 to the debug configuration as TX, 1 data byte, and auto-ack disabled

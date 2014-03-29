@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\task 2 - Interrupt Levels\InterruptLevels.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task 1 - Overflow Interrupt\OverflowInterrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\task 3 - Round Robin\RoundRobin.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

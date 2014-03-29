@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code/stdiodemo/default</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code/stdiodemo/default</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=D">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/sample_code/stdiodemo/">Parent Directory</a>                             -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="Makefile">Makefile</a>                04-Dec-2007 21:20  2.1K  
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="dep/">dep/</a>                    05-Dec-2007 00:29    -   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="hd44780.o">hd44780.o</a>               04-Dec-2007 21:20  6.8K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="lcd.o">lcd.o</a>                   04-Dec-2007 21:20  4.3K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.elf">stdiodemo.elf</a>           04-Dec-2007 21:20   20K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.hex">stdiodemo.hex</a>           04-Dec-2007 21:20   16K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.lss">stdiodemo.lss</a>           04-Dec-2007 21:20  122K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.map">stdiodemo.map</a>           04-Dec-2007 21:20   28K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.o">stdiodemo.o</a>             04-Dec-2007 21:20  7.0K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="uart.o">uart.o</a>                  04-Dec-2007 21:20  7.0K  
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

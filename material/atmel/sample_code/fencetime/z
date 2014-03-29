@@ -1,0 +1,147 @@
+void keypad()
+{
+
+	char key, key2;
+
+	key = skeyscan();
+
+	if (!timer_on)
+	{
+	// handle other key presses
+		key2 = keyscan();
+		switch (key2)
+		{
+			case 1:  // reset or full reset
+			if  (key == 2)	// full reset
+			{
+				mode = 0;
+				maxround = 0;
+				round_no = 0;
+			}
+			reset();	// reset counter and others depending on mode
+			break;
+
+			case 3:	// set priority for overtime
+					// also sets initial time to 1 minite
+					// inv sets mode
+			if  (key == 2)	//mode
+			{
+				mode = 1;
+				round_no = 1;
+				maxround = 3;
+			}
+			else
+			{
+				t.minute = 1;
+				t.second_hd = 0;
+				t.second_ld = 0;
+				if (!(mask[R_L] | mask[G_L]))
+				{
+					if (turn & 0b00000001) mask[G_L] = DP;
+					else mask[R_L] = DP;			
+				}
+			}
+			break;
+			
+			case 4:  // card for red
+				if (key == 2) // decrement card
+				{
+					if (mask[R_H] == DP) mask[R_H] = 0;
+					if (mask[T_SL] == DP)
+					{
+						mask[T_SL] = 0;
+						mask[R_H] = DP;
+					}
+				}
+				else // increment card
+				{
+					if ((mask[R_H] != DP) && (mask[T_SL] != DP))  mask[R_H] = DP;
+					else
+					{
+						mask[R_H] = 0;
+						mask[T_SL] = DP;
+						increment_score(&green_score);
+					}
+				}
+			break;
+			
+			case 6:  // card for green 
+				if (key == 2) // decrement card
+				{
+					if (mask[G_H] == DP) mask[G_H] = 0;
+					if (mask[R_] == DP)
+					{
+						mask[R_] = 0;
+						mask[G_H] = DP;
+					}
+				}
+				else // increment card
+				{
+					if ((mask[G_H] != DP) &&(mask[R_] != DP)) mask[G_H] = DP;
+					else
+					{
+						mask[G_H] = 0;
+						mask[R_] = DP;
+						increment_score(&red_score);
+					}
+				}
+			break;
+
+			case 7:	// change red score
+			if (key == 2)
+			{
+				decrement_score(&red_score);
+			}
+			else
+			{
+				increment_score(&red_score);
+			}
+			break;
+			
+			case 9:	// change green score
+			if (key == 2)
+			{
+				decrement_score(&green_score);
+			}
+			else
+			{
+				increment_score(&green_score);
+			}
+			break;
+			case 10:  // increment minutes
+			if (key == 2)
+			{
+				if (--t.minute<0) t.minute = 0;
+			}
+			else
+			{
+				if (++t.minute == 10) t.minute = 9;
+			}
+			break;
+
+			case 11:  // increment seconds
+			if (key == 2)
+			{
+				t.second_ld = t.second_ld -2;
+				if (t.second_ld<0)
+				{
+					t.second_ld=19;
+					if (--t.second_hd<0)
+					{
+						t.second_hd=5;
+					}
+				}
+			}
+			else
+			{
+				t.second_ld = t.second_ld + 2;
+				if (t.second_ld > 19)
+				{
+					t.second_ld = 0;
+					if (++t.second_hd >5) t.second_hd = 0;	
+				}
+			}
+			default: break;
+		}
+	}
+}

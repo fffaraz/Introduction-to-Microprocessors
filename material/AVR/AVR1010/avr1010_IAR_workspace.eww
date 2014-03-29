@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\power_consumption.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\rtc32_power_consumption.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\rtc32_sleep_example.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\sleep_example.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\xplain_power_consumption.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\xplain_sleep_example.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code/nordic1</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code/nordic1</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=D">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/sample_code/">Parent Directory</a>                             -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="default/">default/</a>                14-Dec-2007 11:50    -   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="maintutorial1local.c">maintutorial1local.c</a>    13-Dec-2007 21:05  4.4K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="maintutorial1remote.c">maintutorial1remote.c</a>   13-Dec-2007 21:05  2.8K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.aps">nordic1_receive.aps</a>     13-Dec-2007 21:05  3.1K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_receive.aws">nordic1_receive.aws</a>     14-Dec-2007 11:21  221   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="nordic1_receive.c">nordic1_receive.c</a>       13-Dec-2007 21:05  3.1K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.aps">nordic1_send.aps</a>        13-Dec-2007 21:05  2.9K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="nordic1_send.aws">nordic1_send.aws</a>        13-Dec-2007 21:05  231   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="nordic1_send.c">nordic1_send.c</a>          13-Dec-2007 21:05  4.6K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="nrf24l01.c">nrf24l01.c</a>              14-Dec-2007 11:10   31K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="nrf24l01.h">nrf24l01.h</a>              13-Dec-2007 21:05   19K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="spi1.c">spi1.c</a>                  13-Dec-2007 21:05  1.2K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="spi1.h">spi1.h</a>                  13-Dec-2007 21:05  578   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="uart0.c">uart0.c</a>                 13-Dec-2007 21:05  3.3K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="uart0.h">uart0.h</a>                 13-Dec-2007 21:05  693   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="usart0.c">usart0.c</a>                13-Dec-2007 21:05  1.3K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="usart0.h">usart0.h</a>                13-Dec-2007 21:05  360   
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>

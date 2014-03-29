@@ -1,0 +1,136 @@
+<html>
+<BR>
+<TABLE WIDTH="600" > <TR>
+<!--
+<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=200><IMG SRC="http://web.cs.mun.ca/%7Epaul/icons/mun_crest_sm.gif" HEIGHT=57 WIDTH= 200></TD>
+-->
+<TD ALIGN=RIGHT VALIGN=BOTTOM >
+<IMG SRC="http://www.mun.ca/images/headerlogo.jpg" ></TD>
+<TD ALIGN=LEFT VALIGN=CENTER WIDTH=500><font size=+1>Department of Computer
+Science<BR> Course: CS 4723</font></TD>
+</TR> <TR> <TD COLSPAN=2><IMG
+SRC="http://www.cs.mun.ca/%7Epaul/icons/mun_hline.gif" ALT="Horizontal Bar" HEIGHT=5 WIDTH=500></TD> </TR>
+</TABLE><BR>
+
+<style>
+body { background: white; }
+h1 { text-align: center; }
+h2 { color: blue; background: white;}
+<!--
+a:hover { color: cyan; }
+-->
+</style>
+
+<head>
+<TITLE>CS4723 Lab 2 </TITLE>
+</head>
+
+<body>
+
+<P>
+<h1>Lab 2: Introduction to counter/timers</h1>
+
+<P>
+<h2>Goals:</h2>
+
+<P>
+The main goal of this lab is to become familiar with counters and timers,
+use the on-chip timer to generate a square wave output,
+and to implement an interrupt driven timer.
+
+<!--
+<h2> Laboratory Report Submission Details </h2>
+<p>
+A laboratory report briefly describing what was done in the lab,
+including any relevant observations, and giving the responses to
+the questions in the laboratory description.
+
+<P>
+Any code written should also be provided, and demonstrated to the
+lab instructor before it is submitted.
+
+<P>
+The lab report is expected at the end of the lab period.
+-->
+
+<h2> The ATMega1284p timers </h2>
+
+<P>
+These are arguably the most important, and most commonly used, peripheral
+devices in the Atmel processors. There are three timers in the 1284p chip,
+two 8-bit counters and one 16-bit counter. There are many similarities,
+and some differences, in the counters.
+
+<h2> A musical keyboard</h2>
+
+<p>
+In this lab, you will extend a timer example from class to produce a set of
+square wave outputs with different frequencies, and output a particular
+frequency when each of a set of buttons is pressed. In short, we will
+make a simple keyboard. Input will be from the push buttons on the STK500,
+and output (a different frequency corresponding to each key) will be through
+the small speakers used in the first lab.
+
+<P>
+Again, the keys can be input through <TT>PORTD</TT>, and the output will be from
+<TT>OC0A</TT> (pin PB3).
+The example in class produced an output at 2093 Hz (the note C7).
+For your implementation, there is a sheet listing the frequencies of musical
+notes, and the values required for the timer assuming the timer uses CTC mode,
+and the processor clock is 1 MHz. Look in the  ''External links to material
+discussed in class'' tab in the course home page, or click
+<a href ='http://www.cs.mun.ca/~paul/cs4723/material/notes.pdf'>
+here</a>.
+
+
+
+<P>
+It is possible to implement the keyboard function using either pin change
+interrupts or polled input, as we did in the previous lab.
+Decide what you prefer, and justify your decision.
+In the lab writeup, explain how each option could be implemented.
+
+<P>
+<h3>Optional:</h3>
+<P>
+Implement <EM>both</EM>, and comment on under what circumstances you might
+wish to use either of the implementations.
+<h2> A real-time clock </h2>
+
+<P>
+Keeping track of  "real" or "clock" time is important in many applications,
+and many of the AVR processors have some facility for this.
+Atmel has an application note
+<a href ='http://www.atmel.com/dyn/resources/prod_documents/doc1259.pdf'>
+(AVR134: Real-Time Clock using the Asynchronous Timer)</a>
+on this subject, which you can read.
+
+<P>
+
+In this lab, you will extend the real-time clock example from class to perform
+a ``stopwatch'' function -- the timer will stop when a button is pressed,
+and then restart when either the same button is pressed again, or a second
+button is pressed. (The choice is yours -- one button for start/stop,
+or separate buttons to start and stop. In the first case, care must be taken
+to ``debounce'' the button.)
+
+<P>
+This requires a 32.768 KHz. crystal connected between pins <TT>TOSC1</TT>
+and <TT>TOSC2</TT> (pins PC6 and PC7).
+The crystal leads can be inserted in pins 23 and 24 of the socket <TT>EXPAND0</TT> on the STK-500
+as shown in the following picture.
+
+<P>
+Timer output will be using the LEDs on the STK-500.
+Use <TT>PORTD</TT> for output in this example.
+
+<p>
+<center><img src="lab2_files/timer_xtl_c.jpg"></center>
+
+<P>
+<h3>Optional:</h3>
+<P>
+Use the two 7-segment displays from the previous lab to display
+the output in seconds.
+
+</body></html>

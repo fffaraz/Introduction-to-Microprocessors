@@ -1,0 +1,81 @@
+###############################################################################
+# Makefile for the project nordic1_receive
+###############################################################################
+
+## General Flags
+PROJECT = nordic1_receive
+MCU = atmega644
+TARGET = nordic1_receive.elf
+CC = avr-gcc.exe
+
+## Options common to compile, link and assembly rules
+COMMON = -mmcu=$(MCU)
+
+## Compile options common for all C compilation units.
+CFLAGS = $(COMMON)
+CFLAGS += -Wall -gdwarf-2 -std=gnu99 -DF_CPU=1000000UL -O2 -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
+CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
+
+## Assembly specific flags
+ASMFLAGS = $(COMMON)
+ASMFLAGS += $(CFLAGS)
+ASMFLAGS += -x assembler-with-cpp -Wa,-gdwarf2
+
+## Linker flags
+LDFLAGS = $(COMMON)
+LDFLAGS +=  -Wl,-Map=nordic1_receive.map
+
+
+## Intel Hex file production flags
+HEX_FLASH_FLAGS = -R .eeprom
+
+HEX_EEPROM_FLAGS = -j .eeprom
+HEX_EEPROM_FLAGS += --set-section-flags=.eeprom="alloc,load"
+HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
+
+
+## Objects that must be built in order to link
+OBJECTS = nordic1_receive.o nrf24l01.o spi1.o 
+
+## Objects explicitly added by the user
+LINKONLYOBJECTS = 
+
+## Build
+all: $(TARGET) nordic1_receive.hex nordic1_receive.eep nordic1_receive.lss size
+
+## Compile
+nordic1_receive.o: ../nordic1_receive.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+nrf24l01.o: ../nrf24l01.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+spi1.o: ../spi1.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+##Link
+$(TARGET): $(OBJECTS)
+	 $(CC) $(LDFLAGS) $(OBJECTS) $(LINKONLYOBJECTS) $(LIBDIRS) $(LIBS) -o $(TARGET)
+
+%.hex: $(TARGET)
+	avr-objcopy -O ihex $(HEX_FLASH_FLAGS)  $< $@
+
+%.eep: $(TARGET)
+	-avr-objcopy $(HEX_EEPROM_FLAGS) -O ihex $< $@ || exit 0
+
+%.lss: $(TARGET)
+	avr-objdump -h -S $< > $@
+
+size: ${TARGET}
+	@echo
+	@avr-size -C --mcu=${MCU} ${TARGET}
+
+## Clean target
+.PHONY: clean
+clean:
+	-rm -rf $(OBJECTS) nordic1_receive.elf dep/* nordic1_receive.hex nordic1_receive.eep nordic1_receive.lss nordic1_receive.map
+
+
+## Other dependencies
+-include $(shell mkdir dep 2>/dev/null) $(wildcard dep/*)
+

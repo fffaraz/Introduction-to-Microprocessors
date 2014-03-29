@@ -1,0 +1,1404 @@
+
+fencetime.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000007b6  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  000007b6  0000082a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000023  00800062  000007b8  0000082c  2**0
+                  ALLOC
+  3 .debug_aranges 00000020  00000000  00000000  0000082c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 000001a6  00000000  00000000  0000084c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000800  00000000  00000000  000009f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000295  00000000  00000000  000011f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000088f  00000000  00000000  00001487  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000f0  00000000  00000000  00001d18  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000021a  00000000  00000000  00001e08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000358  00000000  00000000  00002022  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 32 00 	jmp	0x64	; 0x64 <__ctors_end>
+   4:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+   8:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+   c:	0c 94 ff 00 	jmp	0x1fe	; 0x1fe <__vector_3>
+  10:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  14:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  18:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  1c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  20:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  24:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  28:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  2c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  30:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  34:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  38:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  3c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  40:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  44:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  48:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  4c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  50:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+
+00000054 <digit>:
+  54:	7e 28 5b 6b 2d 67 77 2a 7f 2f 3f 75 56 79 57 17     ~([k-gw*./?uVyW.
+
+00000064 <__ctors_end>:
+  64:	11 24       	eor	r1, r1
+  66:	1f be       	out	0x3f, r1	; 63
+  68:	cf e5       	ldi	r28, 0x5F	; 95
+  6a:	d4 e0       	ldi	r29, 0x04	; 4
+  6c:	de bf       	out	0x3e, r29	; 62
+  6e:	cd bf       	out	0x3d, r28	; 61
+
+00000070 <__do_copy_data>:
+  70:	10 e0       	ldi	r17, 0x00	; 0
+  72:	a0 e6       	ldi	r26, 0x60	; 96
+  74:	b0 e0       	ldi	r27, 0x00	; 0
+  76:	e6 eb       	ldi	r30, 0xB6	; 182
+  78:	f7 e0       	ldi	r31, 0x07	; 7
+  7a:	02 c0       	rjmp	.+4      	; 0x80 <.do_copy_data_start>
+
+0000007c <.do_copy_data_loop>:
+  7c:	05 90       	lpm	r0, Z+
+  7e:	0d 92       	st	X+, r0
+
+00000080 <.do_copy_data_start>:
+  80:	a2 36       	cpi	r26, 0x62	; 98
+  82:	b1 07       	cpc	r27, r17
+  84:	d9 f7       	brne	.-10     	; 0x7c <.do_copy_data_loop>
+
+00000086 <__do_clear_bss>:
+  86:	10 e0       	ldi	r17, 0x00	; 0
+  88:	a2 e6       	ldi	r26, 0x62	; 98
+  8a:	b0 e0       	ldi	r27, 0x00	; 0
+  8c:	01 c0       	rjmp	.+2      	; 0x90 <.do_clear_bss_start>
+
+0000008e <.do_clear_bss_loop>:
+  8e:	1d 92       	st	X+, r1
+
+00000090 <.do_clear_bss_start>:
+  90:	a5 38       	cpi	r26, 0x85	; 133
+  92:	b1 07       	cpc	r27, r17
+  94:	e1 f7       	brne	.-8      	; 0x8e <.do_clear_bss_loop>
+  96:	0e 94 b0 03 	call	0x760	; 0x760 <main>
+  9a:	0c 94 d9 03 	jmp	0x7b2	; 0x7b2 <_exit>
+
+0000009e <__bad_interrupt>:
+  9e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a2 <init_io>:
+//	set sleep mode to wait out interrupts
+	set_sleep_mode(SLEEP_MODE_IDLE);
+}
+
+void init_io()
+{	
+  a2:	9f ef       	ldi	r25, 0xFF	; 255
+  a4:	9a bb       	out	0x1a, r25	; 26
+	DDRA = 0XFF;	// select digit
+	PORTA = 0XFF;
+  a6:	9b bb       	out	0x1b, r25	; 27
+	DDRB = 0X00;	// keypad start/stop (B0)
+  a8:	17 ba       	out	0x17, r1	; 23
+	PORTB = 0X00;
+  aa:	18 ba       	out	0x18, r1	; 24
+	DDRC = 0X00;	// keypad & timer
+  ac:	14 ba       	out	0x14, r1	; 20
+	PORTC = 0X0F;	// set pullups and tristate P6, P7
+  ae:	8f e0       	ldi	r24, 0x0F	; 15
+  b0:	85 bb       	out	0x15, r24	; 21
+	DDRD = 0XFF;	// display digit
+  b2:	91 bb       	out	0x11, r25	; 17
+	PORTD = 0X00;
+  b4:	12 ba       	out	0x12, r1	; 18
+}
+  b6:	08 95       	ret
+
+000000b8 <init_rtc>:
+
+void init_rtc()
+{
+  b8:	f8 94       	cli
+	cli();           
+    ASSR |= (1<<AS2);		//set Timer/Counter0 to be asynchronous, driving a crystal
+  ba:	82 b5       	in	r24, 0x22	; 34
+  bc:	88 60       	ori	r24, 0x08	; 8
+  be:	82 bd       	out	0x22, r24	; 34
+
+#ifdef __AVR_ATmega16__
+	TCCR2 = _BV(WGM21) | _BV(CS20);		// set CTC mode
+  c0:	89 e0       	ldi	r24, 0x09	; 9
+  c2:	85 bd       	out	0x25, r24	; 37
+  c4:	88 e8       	ldi	r24, 0x88	; 136
+  c6:	93 e1       	ldi	r25, 0x13	; 19
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  c8:	29 e1       	ldi	r18, 0x19	; 25
+  ca:	30 e0       	ldi	r19, 0x00	; 0
+  cc:	f9 01       	movw	r30, r18
+  ce:	31 97       	sbiw	r30, 0x01	; 1
+  d0:	f1 f7       	brne	.-4      	; 0xce <init_rtc+0x16>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  d2:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  d4:	d9 f7       	brne	.-10     	; 0xcc <init_rtc+0x14>
+	_delay_ms(500);			// let oscillator stabilize
+	TCNT2 = 0x00;
+  d6:	14 bc       	out	0x24, r1	; 36
+//	while(ASSR&0x07);		// Wait until TC0 is updated
+//	TIMSK2 = _BV(TOIE2);	// set 8-bit Timer/Counter0 Overflow Interrupt Enable
+	OCR2 = 63;				// set compare register 
+  d8:	8f e3       	ldi	r24, 0x3F	; 63
+  da:	83 bd       	out	0x23, r24	; 35
+	TIMSK = _BV(OCIE2);		// set interrupt mask to overflow
+  dc:	80 e8       	ldi	r24, 0x80	; 128
+  de:	89 bf       	out	0x39, r24	; 57
+	TIFR=0;					// clear any pending timer interrupts
+  e0:	18 be       	out	0x38, r1	; 56
+    TIMSK2 = _BV(OCIE2A);	// set interrupt mask to overflow
+	TIFR2=0;				//clear any pending timer interrupts
+	TCCR2B = _BV(CS20);		//prescale the timer to be clock source
+#endif
+
+	sei();					//enable interrpts                              
+  e2:	78 94       	sei
+}
+  e4:	08 95       	ret
+
+000000e6 <init>:
+		}
+	}            
+}
+
+void init()
+{
+  e6:	88 e1       	ldi	r24, 0x18	; 24
+  e8:	0f b6       	in	r0, 0x3f	; 63
+  ea:	f8 94       	cli
+  ec:	81 bd       	out	0x21, r24	; 33
+  ee:	11 bc       	out	0x21, r1	; 33
+  f0:	0f be       	out	0x3f, r0	; 63
+//	turn off unused modules
+#ifdef __AVR_ATmega16__
+	wdt_disable();
+	ACSR = _BV(ACD);
+  f2:	80 e8       	ldi	r24, 0x80	; 128
+  f4:	88 b9       	out	0x08, r24	; 8
+	ADCSRA = _BV(ADEN);
+  f6:	86 b9       	out	0x06, r24	; 6
+	set_sleep_mode(SLEEP_MODE_IDLE);
+}
+
+void init_io()
+{	
+	DDRA = 0XFF;	// select digit
+  f8:	9f ef       	ldi	r25, 0xFF	; 255
+  fa:	9a bb       	out	0x1a, r25	; 26
+	PORTA = 0XFF;
+  fc:	9b bb       	out	0x1b, r25	; 27
+	DDRB = 0X00;	// keypad start/stop (B0)
+  fe:	17 ba       	out	0x17, r1	; 23
+	PORTB = 0X00;
+ 100:	18 ba       	out	0x18, r1	; 24
+	DDRC = 0X00;	// keypad & timer
+ 102:	14 ba       	out	0x14, r1	; 20
+	PORTC = 0X0F;	// set pullups and tristate P6, P7
+ 104:	8f e0       	ldi	r24, 0x0F	; 15
+ 106:	85 bb       	out	0x15, r24	; 21
+	DDRD = 0XFF;	// display digit
+ 108:	91 bb       	out	0x11, r25	; 17
+	PORTD = 0X00;
+ 10a:	12 ba       	out	0x12, r1	; 18
+	power_spi_disable();
+//	PRR0 = _BV(PRADC)|_BV(PRUSART0)|_BV(PRSPI)|_BV(PRTWI)|_BV(PRTIM0)|_BV(PRTIM1);
+#endif
+
+	init_io();
+	init_rtc();
+ 10c:	0e 94 5c 00 	call	0xb8	; 0xb8 <init_rtc>
+
+//	set sleep mode to wait out interrupts
+	set_sleep_mode(SLEEP_MODE_IDLE);
+ 110:	85 b7       	in	r24, 0x35	; 53
+ 112:	8f 74       	andi	r24, 0x4F	; 79
+ 114:	85 bf       	out	0x35, r24	; 53
+}
+ 116:	08 95       	ret
+
+00000118 <display>:
+
+	sei();					//enable interrpts                              
+}
+
+void display()
+{
+ 118:	e0 91 83 00 	lds	r30, 0x0083
+ 11c:	ee 23       	and	r30, r30
+ 11e:	39 f0       	breq	.+14     	; 0x12e <display+0x16>
+ 120:	f0 e0       	ldi	r31, 0x00	; 0
+ 122:	ec 5a       	subi	r30, 0xAC	; 172
+ 124:	ff 4f       	sbci	r31, 0xFF	; 255
+ 126:	e4 91       	lpm	r30, Z+
+ 128:	e0 93 7b 00 	sts	0x007B, r30
+ 12c:	02 c0       	rjmp	.+4      	; 0x132 <display+0x1a>
+// this should be redistributed, eventually
+	if (round_no) dsp[R_] = pgm_read_byte(&digit[round_no]);
+	else dsp[R_] = 0;
+ 12e:	10 92 7b 00 	sts	0x007B, r1
+	dsp[T_M] = pgm_read_byte(&digit[t.minute]);
+ 132:	e0 91 67 00 	lds	r30, 0x0067
+ 136:	ff 27       	eor	r31, r31
+ 138:	e7 fd       	sbrc	r30, 7
+ 13a:	f0 95       	com	r31
+ 13c:	ec 5a       	subi	r30, 0xAC	; 172
+ 13e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 140:	e4 91       	lpm	r30, Z+
+ 142:	e0 93 7c 00 	sts	0x007C, r30
+	dsp[T_SH] = pgm_read_byte(&digit[t.second_hd]);
+ 146:	e0 91 66 00 	lds	r30, 0x0066
+ 14a:	ff 27       	eor	r31, r31
+ 14c:	e7 fd       	sbrc	r30, 7
+ 14e:	f0 95       	com	r31
+ 150:	ec 5a       	subi	r30, 0xAC	; 172
+ 152:	ff 4f       	sbci	r31, 0xFF	; 255
+ 154:	e4 91       	lpm	r30, Z+
+ 156:	e0 93 79 00 	sts	0x0079, r30
+	dsp[T_SL] = pgm_read_byte(&digit[t.second_ld>>1]);
+ 15a:	e0 91 65 00 	lds	r30, 0x0065
+ 15e:	e5 95       	asr	r30
+ 160:	ff 27       	eor	r31, r31
+ 162:	e7 fd       	sbrc	r30, 7
+ 164:	f0 95       	com	r31
+ 166:	ec 5a       	subi	r30, 0xAC	; 172
+ 168:	ff 4f       	sbci	r31, 0xFF	; 255
+ 16a:	e4 91       	lpm	r30, Z+
+ 16c:	e0 93 7a 00 	sts	0x007A, r30
+	dsp[G_H] = pgm_read_byte(&digit[green_score.hd]);
+ 170:	e0 91 71 00 	lds	r30, 0x0071
+ 174:	ff 27       	eor	r31, r31
+ 176:	e7 fd       	sbrc	r30, 7
+ 178:	f0 95       	com	r31
+ 17a:	ec 5a       	subi	r30, 0xAC	; 172
+ 17c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 17e:	e4 91       	lpm	r30, Z+
+ 180:	e0 93 75 00 	sts	0x0075, r30
+	dsp[G_L] = pgm_read_byte(&digit[green_score.ld]);
+ 184:	e0 91 72 00 	lds	r30, 0x0072
+ 188:	ff 27       	eor	r31, r31
+ 18a:	e7 fd       	sbrc	r30, 7
+ 18c:	f0 95       	com	r31
+ 18e:	ec 5a       	subi	r30, 0xAC	; 172
+ 190:	ff 4f       	sbci	r31, 0xFF	; 255
+ 192:	e4 91       	lpm	r30, Z+
+ 194:	e0 93 76 00 	sts	0x0076, r30
+	dsp[R_H] = pgm_read_byte(&digit[red_score.hd]);
+ 198:	e0 91 7e 00 	lds	r30, 0x007E
+ 19c:	ff 27       	eor	r31, r31
+ 19e:	e7 fd       	sbrc	r30, 7
+ 1a0:	f0 95       	com	r31
+ 1a2:	ec 5a       	subi	r30, 0xAC	; 172
+ 1a4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a6:	e4 91       	lpm	r30, Z+
+ 1a8:	e0 93 77 00 	sts	0x0077, r30
+	dsp[R_L] = pgm_read_byte(&digit[red_score.ld]);
+ 1ac:	e0 91 7f 00 	lds	r30, 0x007F
+ 1b0:	ff 27       	eor	r31, r31
+ 1b2:	e7 fd       	sbrc	r30, 7
+ 1b4:	f0 95       	com	r31
+ 1b6:	ec 5a       	subi	r30, 0xAC	; 172
+ 1b8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ba:	e4 91       	lpm	r30, Z+
+ 1bc:	e0 93 78 00 	sts	0x0078, r30
+		
+//	PORTD = ~((t.second_hd<<4) | t.second_ld);
+	PORTD = 0;
+ 1c0:	12 ba       	out	0x12, r1	; 18
+	PORTA = ~(1<<turn);	// for direct drive
+ 1c2:	20 91 70 00 	lds	r18, 0x0070
+ 1c6:	81 e0       	ldi	r24, 0x01	; 1
+ 1c8:	90 e0       	ldi	r25, 0x00	; 0
+ 1ca:	02 c0       	rjmp	.+4      	; 0x1d0 <display+0xb8>
+ 1cc:	88 0f       	add	r24, r24
+ 1ce:	99 1f       	adc	r25, r25
+ 1d0:	2a 95       	dec	r18
+ 1d2:	e2 f7       	brpl	.-8      	; 0x1cc <display+0xb4>
+ 1d4:	80 95       	com	r24
+ 1d6:	8b bb       	out	0x1b, r24	; 27
+//	PORTA = 1<<turn;	// for optocouplers
+	PORTD = dsp[turn] | mask[turn];
+ 1d8:	a0 91 70 00 	lds	r26, 0x0070
+ 1dc:	e0 91 70 00 	lds	r30, 0x0070
+ 1e0:	ff 27       	eor	r31, r31
+ 1e2:	e7 fd       	sbrc	r30, 7
+ 1e4:	f0 95       	com	r31
+ 1e6:	e8 59       	subi	r30, 0x98	; 152
+ 1e8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ea:	bb 27       	eor	r27, r27
+ 1ec:	a7 fd       	sbrc	r26, 7
+ 1ee:	b0 95       	com	r27
+ 1f0:	ab 58       	subi	r26, 0x8B	; 139
+ 1f2:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1f4:	80 81       	ld	r24, Z
+ 1f6:	9c 91       	ld	r25, X
+ 1f8:	89 2b       	or	r24, r25
+ 1fa:	82 bb       	out	0x12, r24	; 18
+}
+ 1fc:	08 95       	ret
+
+000001fe <__vector_3>:
+//- ISR(TIMER2_COMPA_vect)	// for ATMega644
+#ifdef __AVR_ATmega644__
+ISR(TIMER2_COMPA_vect)	// for ATMega644
+#endif
+
+{
+ 1fe:	1f 92       	push	r1
+ 200:	0f 92       	push	r0
+ 202:	0f b6       	in	r0, 0x3f	; 63
+ 204:	0f 92       	push	r0
+ 206:	11 24       	eor	r1, r1
+ 208:	8f 93       	push	r24
+	if (++turn==8)
+ 20a:	80 91 70 00 	lds	r24, 0x0070
+ 20e:	8f 5f       	subi	r24, 0xFF	; 255
+ 210:	80 93 70 00 	sts	0x0070, r24
+ 214:	80 91 70 00 	lds	r24, 0x0070
+ 218:	88 30       	cpi	r24, 0x08	; 8
+ 21a:	11 f4       	brne	.+4      	; 0x220 <__vector_3+0x22>
+	{
+		turn = 0;
+ 21c:	10 92 70 00 	sts	0x0070, r1
+	}
+
+	if (timer_on)
+ 220:	80 91 62 00 	lds	r24, 0x0062
+ 224:	88 23       	and	r24, r24
+ 226:	a9 f1       	breq	.+106    	; 0x292 <__vector_3+0x94>
+	{
+		if (++t.tick==0XFF)
+ 228:	80 91 64 00 	lds	r24, 0x0064
+ 22c:	8f 5f       	subi	r24, 0xFF	; 255
+ 22e:	80 93 64 00 	sts	0x0064, r24
+ 232:	80 91 64 00 	lds	r24, 0x0064
+ 236:	8f 3f       	cpi	r24, 0xFF	; 255
+ 238:	61 f5       	brne	.+88     	; 0x292 <__vector_3+0x94>
+		{
+//			t.tick=0;
+			if (--t.second_ld<0)
+ 23a:	80 91 65 00 	lds	r24, 0x0065
+ 23e:	81 50       	subi	r24, 0x01	; 1
+ 240:	80 93 65 00 	sts	0x0065, r24
+ 244:	80 91 65 00 	lds	r24, 0x0065
+ 248:	87 ff       	sbrs	r24, 7
+ 24a:	23 c0       	rjmp	.+70     	; 0x292 <__vector_3+0x94>
+			{
+				t.second_ld=19;
+ 24c:	83 e1       	ldi	r24, 0x13	; 19
+ 24e:	80 93 65 00 	sts	0x0065, r24
+				if (--t.second_hd<0)
+ 252:	80 91 66 00 	lds	r24, 0x0066
+ 256:	81 50       	subi	r24, 0x01	; 1
+ 258:	80 93 66 00 	sts	0x0066, r24
+ 25c:	80 91 66 00 	lds	r24, 0x0066
+ 260:	87 ff       	sbrs	r24, 7
+ 262:	17 c0       	rjmp	.+46     	; 0x292 <__vector_3+0x94>
+				{
+					t.second_hd=5;
+ 264:	85 e0       	ldi	r24, 0x05	; 5
+ 266:	80 93 66 00 	sts	0x0066, r24
+					if (--t.minute<0) 
+ 26a:	80 91 67 00 	lds	r24, 0x0067
+ 26e:	81 50       	subi	r24, 0x01	; 1
+ 270:	80 93 67 00 	sts	0x0067, r24
+ 274:	80 91 67 00 	lds	r24, 0x0067
+ 278:	87 ff       	sbrs	r24, 7
+ 27a:	0b c0       	rjmp	.+22     	; 0x292 <__vector_3+0x94>
+					{
+						timer_on = FALSE;
+ 27c:	10 92 62 00 	sts	0x0062, r1
+						round_done = TRUE;
+ 280:	81 e0       	ldi	r24, 0x01	; 1
+ 282:	80 93 63 00 	sts	0x0063, r24
+						t.second_ld = 0;
+ 286:	10 92 65 00 	sts	0x0065, r1
+						t.second_hd = 0;
+ 28a:	10 92 66 00 	sts	0x0066, r1
+						t.minute = 0;
+ 28e:	10 92 67 00 	sts	0x0067, r1
+					}
+				}
+			}  
+		}
+	}
+}
+ 292:	8f 91       	pop	r24
+ 294:	0f 90       	pop	r0
+ 296:	0f be       	out	0x3f, r0	; 63
+ 298:	0f 90       	pop	r0
+ 29a:	1f 90       	pop	r1
+ 29c:	18 95       	reti
+
+0000029e <keypadscan>:
+#define KEYMASK 0b00001111
+// for multiple key presses, it returns the value
+// in the LAST column in the code.
+// Assumes rows (4) are the low order bits, PORT C
+// columns are the next (3) higher order bits
+{
+ 29e:	b8 98       	cbi	0x17, 0	; 23
+		case 0B00001000: out = 8; break;
+		default: break;
+	}
+*/
+	DDRB &= 0b11111110;	// make sure B0 is not output
+	DDRC = 0b00010000;
+ 2a0:	80 e1       	ldi	r24, 0x10	; 16
+ 2a2:	84 bb       	out	0x14, r24	; 20
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 2a4:	82 e0       	ldi	r24, 0x02	; 2
+ 2a6:	8a 95       	dec	r24
+ 2a8:	f1 f7       	brne	.-4      	; 0x2a6 <keypadscan+0x8>
+	_delay_us(6);
+	check = ~PINC & KEYMASK;
+ 2aa:	83 b3       	in	r24, 0x13	; 19
+
+	switch (check) {
+ 2ac:	80 95       	com	r24
+ 2ae:	8f 70       	andi	r24, 0x0F	; 15
+ 2b0:	82 30       	cpi	r24, 0x02	; 2
+ 2b2:	71 f0       	breq	.+28     	; 0x2d0 <keypadscan+0x32>
+ 2b4:	83 30       	cpi	r24, 0x03	; 3
+ 2b6:	18 f4       	brcc	.+6      	; 0x2be <keypadscan+0x20>
+ 2b8:	81 30       	cpi	r24, 0x01	; 1
+ 2ba:	41 f4       	brne	.+16     	; 0x2cc <keypadscan+0x2e>
+ 2bc:	05 c0       	rjmp	.+10     	; 0x2c8 <keypadscan+0x2a>
+ 2be:	84 30       	cpi	r24, 0x04	; 4
+ 2c0:	49 f0       	breq	.+18     	; 0x2d4 <keypadscan+0x36>
+ 2c2:	88 30       	cpi	r24, 0x08	; 8
+ 2c4:	19 f4       	brne	.+6      	; 0x2cc <keypadscan+0x2e>
+ 2c6:	08 c0       	rjmp	.+16     	; 0x2d8 <keypadscan+0x3a>
+ 2c8:	91 e0       	ldi	r25, 0x01	; 1
+ 2ca:	07 c0       	rjmp	.+14     	; 0x2da <keypadscan+0x3c>
+ 2cc:	9f ef       	ldi	r25, 0xFF	; 255
+ 2ce:	05 c0       	rjmp	.+10     	; 0x2da <keypadscan+0x3c>
+ 2d0:	9a e0       	ldi	r25, 0x0A	; 10
+ 2d2:	03 c0       	rjmp	.+6      	; 0x2da <keypadscan+0x3c>
+		case 0B00000001: out = 1;	break;	
+		case 0B00000010: out = 10; break;
+ 2d4:	94 e0       	ldi	r25, 0x04	; 4
+ 2d6:	01 c0       	rjmp	.+2      	; 0x2da <keypadscan+0x3c>
+		case 0B00000100: out = 4; break;
+ 2d8:	97 e0       	ldi	r25, 0x07	; 7
+		case 0B00001000: out = 7; break;
+		default: break;
+	}
+
+	DDRC = 0b00100000;
+ 2da:	80 e2       	ldi	r24, 0x20	; 32
+ 2dc:	84 bb       	out	0x14, r24	; 20
+ 2de:	82 e0       	ldi	r24, 0x02	; 2
+ 2e0:	8a 95       	dec	r24
+ 2e2:	f1 f7       	brne	.-4      	; 0x2e0 <keypadscan+0x42>
+	_delay_us(6);
+	check = ~PINC & KEYMASK;
+ 2e4:	83 b3       	in	r24, 0x13	; 19
+
+	switch (check) {
+ 2e6:	80 95       	com	r24
+ 2e8:	8f 70       	andi	r24, 0x0F	; 15
+ 2ea:	82 30       	cpi	r24, 0x02	; 2
+ 2ec:	61 f0       	breq	.+24     	; 0x306 <keypadscan+0x68>
+ 2ee:	83 30       	cpi	r24, 0x03	; 3
+ 2f0:	18 f4       	brcc	.+6      	; 0x2f8 <keypadscan+0x5a>
+ 2f2:	81 30       	cpi	r24, 0x01	; 1
+ 2f4:	69 f4       	brne	.+26     	; 0x310 <keypadscan+0x72>
+ 2f6:	05 c0       	rjmp	.+10     	; 0x302 <keypadscan+0x64>
+ 2f8:	84 30       	cpi	r24, 0x04	; 4
+ 2fa:	39 f0       	breq	.+14     	; 0x30a <keypadscan+0x6c>
+ 2fc:	88 30       	cpi	r24, 0x08	; 8
+ 2fe:	41 f4       	brne	.+16     	; 0x310 <keypadscan+0x72>
+ 300:	06 c0       	rjmp	.+12     	; 0x30e <keypadscan+0x70>
+ 302:	93 e0       	ldi	r25, 0x03	; 3
+ 304:	05 c0       	rjmp	.+10     	; 0x310 <keypadscan+0x72>
+ 306:	9b e0       	ldi	r25, 0x0B	; 11
+ 308:	03 c0       	rjmp	.+6      	; 0x310 <keypadscan+0x72>
+		case 0B00000001: out = 3;	break;	
+		case 0B00000010: out = 11; break;
+ 30a:	96 e0       	ldi	r25, 0x06	; 6
+ 30c:	01 c0       	rjmp	.+2      	; 0x310 <keypadscan+0x72>
+		case 0B00000100: out = 6; break;
+ 30e:	99 e0       	ldi	r25, 0x09	; 9
+		case 0B00001000: out = 9; break;
+		default: break;
+	}
+
+	return(out);
+}
+ 310:	89 2f       	mov	r24, r25
+ 312:	08 95       	ret
+
+00000314 <keyscan>:
+	if (oldskeycount >= DEBOUNCE) return(check);
+	else return(0XFF);
+}
+
+char keyscan()
+{
+ 314:	0e 94 4f 01 	call	0x29e	; 0x29e <keypadscan>
+ 318:	98 2f       	mov	r25, r24
+	char check;
+	check = keypadscan();
+
+	if (check == 0XFF)  // key not pressed
+ 31a:	8f 3f       	cpi	r24, 0xFF	; 255
+ 31c:	29 f4       	brne	.+10     	; 0x328 <keyscan+0x14>
+	{
+		oldkeycount = 0;
+ 31e:	10 92 81 00 	sts	0x0081, r1
+		oldkey = 0xFF;
+ 322:	80 93 80 00 	sts	0x0080, r24
+ 326:	13 c0       	rjmp	.+38     	; 0x34e <keyscan+0x3a>
+	}
+	else
+	{
+		if (check != oldkey)  // was same key pressed last time?
+ 328:	80 91 80 00 	lds	r24, 0x0080
+ 32c:	98 17       	cp	r25, r24
+ 32e:	29 f0       	breq	.+10     	; 0x33a <keyscan+0x26>
+		{
+			oldkey = check;
+ 330:	90 93 80 00 	sts	0x0080, r25
+			oldkeycount = 0;
+ 334:	10 92 81 00 	sts	0x0081, r1
+ 338:	0a c0       	rjmp	.+20     	; 0x34e <keyscan+0x3a>
+		}
+		else					// yes, it was
+		{
+			if (++oldkeycount > DEBOUNCE)
+ 33a:	80 91 81 00 	lds	r24, 0x0081
+ 33e:	8f 5f       	subi	r24, 0xFF	; 255
+ 340:	80 93 81 00 	sts	0x0081, r24
+ 344:	84 30       	cpi	r24, 0x04	; 4
+ 346:	18 f0       	brcs	.+6      	; 0x34e <keyscan+0x3a>
+			{
+				oldkeycount = DEBOUNCE + 1;
+ 348:	84 e0       	ldi	r24, 0x04	; 4
+ 34a:	80 93 81 00 	sts	0x0081, r24
+			}
+		}
+	}
+		if (oldkeycount == DEBOUNCE) return(check);
+ 34e:	80 91 81 00 	lds	r24, 0x0081
+ 352:	83 30       	cpi	r24, 0x03	; 3
+ 354:	09 f0       	breq	.+2      	; 0x358 <keyscan+0x44>
+ 356:	9f ef       	ldi	r25, 0xFF	; 255
+		else return(0XFF);
+}
+ 358:	89 2f       	mov	r24, r25
+ 35a:	08 95       	ret
+
+0000035c <skeypadscan>:
+#define KEYMASK 0b00001111
+// for multiple key presses, it returns the value
+// in the LAST column in the code.
+// Assumes rows (4) are the low order bits, PORT C
+// columns are the next (3) higher order bits
+{
+ 35c:	14 ba       	out	0x14, r1	; 20
+	char check, out;
+
+	out = 0XFF;
+
+	DDRC = 0X00;			// make sure port C is not output
+	DDRB  |= 0b00000001;
+ 35e:	b8 9a       	sbi	0x17, 0	; 23
+ 360:	82 e0       	ldi	r24, 0x02	; 2
+ 362:	8a 95       	dec	r24
+ 364:	f1 f7       	brne	.-4      	; 0x362 <skeypadscan+0x6>
+	_delay_us(6);
+	check = ~PINC & KEYMASK;
+ 366:	83 b3       	in	r24, 0x13	; 19
+
+	switch (check) {
+ 368:	80 95       	com	r24
+ 36a:	8f 70       	andi	r24, 0x0F	; 15
+ 36c:	82 30       	cpi	r24, 0x02	; 2
+ 36e:	71 f0       	breq	.+28     	; 0x38c <skeypadscan+0x30>
+ 370:	83 30       	cpi	r24, 0x03	; 3
+ 372:	18 f4       	brcc	.+6      	; 0x37a <skeypadscan+0x1e>
+ 374:	81 30       	cpi	r24, 0x01	; 1
+ 376:	41 f4       	brne	.+16     	; 0x388 <skeypadscan+0x2c>
+ 378:	05 c0       	rjmp	.+10     	; 0x384 <skeypadscan+0x28>
+ 37a:	84 30       	cpi	r24, 0x04	; 4
+ 37c:	49 f0       	breq	.+18     	; 0x390 <skeypadscan+0x34>
+ 37e:	88 30       	cpi	r24, 0x08	; 8
+ 380:	19 f4       	brne	.+6      	; 0x388 <skeypadscan+0x2c>
+ 382:	06 c0       	rjmp	.+12     	; 0x390 <skeypadscan+0x34>
+ 384:	82 e0       	ldi	r24, 0x02	; 2
+ 386:	08 95       	ret
+ 388:	8f ef       	ldi	r24, 0xFF	; 255
+ 38a:	08 95       	ret
+ 38c:	80 e0       	ldi	r24, 0x00	; 0
+ 38e:	08 95       	ret
+		case 0B00000001: out = 2; break;	
+		case 0B00000010: out = 0; break;
+ 390:	85 e0       	ldi	r24, 0x05	; 5
+		case 0B00001000: out = 5; break;  // key 8 also returns 5
+		default: break;
+	}
+
+	return(out);
+}
+ 392:	08 95       	ret
+
+00000394 <skeyscan>:
+		}
+	}
+}
+
+char skeyscan()
+{
+ 394:	0e 94 ae 01 	call	0x35c	; 0x35c <skeypadscan>
+ 398:	98 2f       	mov	r25, r24
+	char check;
+	check = skeypadscan();
+
+		if (check == 0XFF)  // key not pressed
+ 39a:	8f 3f       	cpi	r24, 0xFF	; 255
+ 39c:	29 f4       	brne	.+10     	; 0x3a8 <skeyscan+0x14>
+	{
+		oldskeycount = 0;
+ 39e:	10 92 84 00 	sts	0x0084, r1
+		oldskey = 0xFF;
+ 3a2:	80 93 73 00 	sts	0x0073, r24
+ 3a6:	13 c0       	rjmp	.+38     	; 0x3ce <skeyscan+0x3a>
+	}
+	else
+	{
+		if (check != oldskey)  // was same key pressed last time?
+ 3a8:	80 91 73 00 	lds	r24, 0x0073
+ 3ac:	98 17       	cp	r25, r24
+ 3ae:	29 f0       	breq	.+10     	; 0x3ba <skeyscan+0x26>
+		{
+			oldskey = check;
+ 3b0:	90 93 73 00 	sts	0x0073, r25
+			oldskeycount = 0;
+ 3b4:	10 92 84 00 	sts	0x0084, r1
+ 3b8:	0a c0       	rjmp	.+20     	; 0x3ce <skeyscan+0x3a>
+		}
+		else					// yes, it was
+		{
+			if (++oldskeycount > DEBOUNCE)
+ 3ba:	80 91 84 00 	lds	r24, 0x0084
+ 3be:	8f 5f       	subi	r24, 0xFF	; 255
+ 3c0:	80 93 84 00 	sts	0x0084, r24
+ 3c4:	84 30       	cpi	r24, 0x04	; 4
+ 3c6:	18 f0       	brcs	.+6      	; 0x3ce <skeyscan+0x3a>
+			{
+				oldskeycount = DEBOUNCE + 1;
+ 3c8:	84 e0       	ldi	r24, 0x04	; 4
+ 3ca:	80 93 84 00 	sts	0x0084, r24
+			}
+		}
+	}
+
+	if ((oldskeycount == DEBOUNCE) &&(check == 5))
+ 3ce:	80 91 84 00 	lds	r24, 0x0084
+ 3d2:	83 30       	cpi	r24, 0x03	; 3
+ 3d4:	a9 f4       	brne	.+42     	; 0x400 <skeyscan+0x6c>
+ 3d6:	95 30       	cpi	r25, 0x05	; 5
+ 3d8:	b1 f4       	brne	.+44     	; 0x406 <skeyscan+0x72>
+	{
+		if (timer_on) timer_save = TCNT2;
+ 3da:	20 91 62 00 	lds	r18, 0x0062
+ 3de:	22 23       	and	r18, r18
+ 3e0:	21 f0       	breq	.+8      	; 0x3ea <skeyscan+0x56>
+ 3e2:	84 b5       	in	r24, 0x24	; 36
+ 3e4:	80 93 7d 00 	sts	0x007D, r24
+ 3e8:	03 c0       	rjmp	.+6      	; 0x3f0 <skeyscan+0x5c>
+		else TCNT2 = timer_save;
+ 3ea:	80 91 7d 00 	lds	r24, 0x007D
+ 3ee:	84 bd       	out	0x24, r24	; 36
+		timer_on = !timer_on;
+ 3f0:	10 92 62 00 	sts	0x0062, r1
+ 3f4:	22 23       	and	r18, r18
+ 3f6:	39 f4       	brne	.+14     	; 0x406 <skeyscan+0x72>
+ 3f8:	81 e0       	ldi	r24, 0x01	; 1
+ 3fa:	80 93 62 00 	sts	0x0062, r24
+ 3fe:	03 c0       	rjmp	.+6      	; 0x406 <skeyscan+0x72>
+	}
+	if (oldskeycount >= DEBOUNCE) return(check);
+ 400:	83 30       	cpi	r24, 0x03	; 3
+ 402:	08 f4       	brcc	.+2      	; 0x406 <skeyscan+0x72>
+ 404:	9f ef       	ldi	r25, 0xFF	; 255
+	else return(0XFF);
+}
+ 406:	89 2f       	mov	r24, r25
+ 408:	08 95       	ret
+
+0000040a <increment_score>:
+
+	return(out);
+}
+
+void increment_score(score *s)
+{
+ 40a:	fc 01       	movw	r30, r24
+	if (++(s->ld) == 10)
+ 40c:	81 81       	ldd	r24, Z+1	; 0x01
+ 40e:	8f 5f       	subi	r24, 0xFF	; 255
+ 410:	81 83       	std	Z+1, r24	; 0x01
+ 412:	8a 30       	cpi	r24, 0x0A	; 10
+ 414:	49 f4       	brne	.+18     	; 0x428 <increment_score+0x1e>
+	{
+		s->ld = 0;
+ 416:	11 82       	std	Z+1, r1	; 0x01
+		if (++(s->hd) == 10)
+ 418:	80 81       	ld	r24, Z
+ 41a:	8f 5f       	subi	r24, 0xFF	; 255
+ 41c:	80 83       	st	Z, r24
+ 41e:	8a 30       	cpi	r24, 0x0A	; 10
+ 420:	19 f4       	brne	.+6      	; 0x428 <increment_score+0x1e>
+		{
+			s->ld = 9;
+ 422:	89 e0       	ldi	r24, 0x09	; 9
+ 424:	81 83       	std	Z+1, r24	; 0x01
+			s->hd = 9;	
+ 426:	80 83       	st	Z, r24
+ 428:	08 95       	ret
+
+0000042a <decrement_score>:
+		}
+	}
+}
+
+void decrement_score(score *s)
+{
+ 42a:	fc 01       	movw	r30, r24
+	if (--(s->ld) < 0)
+ 42c:	81 81       	ldd	r24, Z+1	; 0x01
+ 42e:	81 50       	subi	r24, 0x01	; 1
+ 430:	81 83       	std	Z+1, r24	; 0x01
+ 432:	87 ff       	sbrs	r24, 7
+ 434:	09 c0       	rjmp	.+18     	; 0x448 <decrement_score+0x1e>
+	{
+		s->ld = 9;
+ 436:	89 e0       	ldi	r24, 0x09	; 9
+ 438:	81 83       	std	Z+1, r24	; 0x01
+		if (--(s->hd) < 0)
+ 43a:	80 81       	ld	r24, Z
+ 43c:	81 50       	subi	r24, 0x01	; 1
+ 43e:	80 83       	st	Z, r24
+ 440:	87 ff       	sbrs	r24, 7
+ 442:	02 c0       	rjmp	.+4      	; 0x448 <decrement_score+0x1e>
+		{
+			s->hd = 0;
+ 444:	10 82       	st	Z, r1
+			s->ld = 0;
+ 446:	11 82       	std	Z+1, r1	; 0x01
+ 448:	08 95       	ret
+
+0000044a <reset>:
+		}
+	}
+}
+
+void reset()
+{
+ 44a:	10 92 68 00 	sts	0x0068, r1
+//	if (mode == 0)	// don't reset score or cards in some modes
+	{
+		mask[G_H] = 0;
+		mask[G_L] = 0;
+ 44e:	10 92 69 00 	sts	0x0069, r1
+		mask[R_H] = 0;
+ 452:	10 92 6a 00 	sts	0x006A, r1
+		mask[R_L] = 0;
+ 456:	10 92 6b 00 	sts	0x006B, r1
+		mask[T_M] = DP;
+ 45a:	80 e8       	ldi	r24, 0x80	; 128
+ 45c:	80 93 6f 00 	sts	0x006F, r24
+		mask[T_SH] = DP;
+ 460:	80 93 6c 00 	sts	0x006C, r24
+		mask[T_SL] = 0;
+ 464:	10 92 6d 00 	sts	0x006D, r1
+		mask[R_] = 0;
+ 468:	10 92 6e 00 	sts	0x006E, r1
+
+		red_score.hd = 0;
+ 46c:	10 92 7e 00 	sts	0x007E, r1
+		red_score.ld = 0;
+ 470:	10 92 7f 00 	sts	0x007F, r1
+		green_score.hd = 0;
+ 474:	10 92 71 00 	sts	0x0071, r1
+		green_score.ld = 0;
+ 478:	10 92 72 00 	sts	0x0072, r1
+	}
+
+	t.minute = maxmin;
+ 47c:	80 91 60 00 	lds	r24, 0x0060
+ 480:	80 93 67 00 	sts	0x0067, r24
+	t.second_hd  = 0;
+ 484:	10 92 66 00 	sts	0x0066, r1
+	t.second_ld = 0;
+ 488:	10 92 65 00 	sts	0x0065, r1
+
+	timer_save = 0;
+ 48c:	10 92 7d 00 	sts	0x007D, r1
+
+	if (round_no > 0) round_no = 1;
+ 490:	80 91 83 00 	lds	r24, 0x0083
+ 494:	88 23       	and	r24, r24
+ 496:	19 f0       	breq	.+6      	; 0x49e <__stack+0x3f>
+ 498:	81 e0       	ldi	r24, 0x01	; 1
+ 49a:	80 93 83 00 	sts	0x0083, r24
+ 49e:	08 95       	ret
+
+000004a0 <keypad>:
+		}
+	}
+}
+
+void keypad()
+{
+ 4a0:	1f 93       	push	r17
+	char key, key2;
+
+	key = skeyscan();
+ 4a2:	0e 94 ca 01 	call	0x394	; 0x394 <skeyscan>
+ 4a6:	18 2f       	mov	r17, r24
+
+	if (!timer_on)
+ 4a8:	80 91 62 00 	lds	r24, 0x0062
+ 4ac:	88 23       	and	r24, r24
+ 4ae:	09 f0       	breq	.+2      	; 0x4b2 <keypad+0x12>
+ 4b0:	55 c1       	rjmp	.+682    	; 0x75c <keypad+0x2bc>
+	{
+	// handle other key presses
+		key2 = keyscan();
+ 4b2:	0e 94 8a 01 	call	0x314	; 0x314 <keyscan>
+ 4b6:	98 2f       	mov	r25, r24
+		switch (key2)
+ 4b8:	86 30       	cpi	r24, 0x06	; 6
+ 4ba:	09 f4       	brne	.+2      	; 0x4be <keypad+0x1e>
+ 4bc:	83 c0       	rjmp	.+262    	; 0x5c4 <keypad+0x124>
+ 4be:	87 30       	cpi	r24, 0x07	; 7
+ 4c0:	48 f4       	brcc	.+18     	; 0x4d4 <keypad+0x34>
+ 4c2:	83 30       	cpi	r24, 0x03	; 3
+ 4c4:	11 f1       	breq	.+68     	; 0x50a <keypad+0x6a>
+ 4c6:	84 30       	cpi	r24, 0x04	; 4
+ 4c8:	09 f4       	brne	.+2      	; 0x4cc <keypad+0x2c>
+ 4ca:	43 c0       	rjmp	.+134    	; 0x552 <keypad+0xb2>
+ 4cc:	81 30       	cpi	r24, 0x01	; 1
+ 4ce:	09 f0       	breq	.+2      	; 0x4d2 <keypad+0x32>
+ 4d0:	45 c1       	rjmp	.+650    	; 0x75c <keypad+0x2bc>
+ 4d2:	10 c0       	rjmp	.+32     	; 0x4f4 <keypad+0x54>
+ 4d4:	89 30       	cpi	r24, 0x09	; 9
+ 4d6:	09 f4       	brne	.+2      	; 0x4da <keypad+0x3a>
+ 4d8:	c7 c0       	rjmp	.+398    	; 0x668 <keypad+0x1c8>
+ 4da:	8a 30       	cpi	r24, 0x0A	; 10
+ 4dc:	20 f4       	brcc	.+8      	; 0x4e6 <keypad+0x46>
+ 4de:	87 30       	cpi	r24, 0x07	; 7
+ 4e0:	09 f0       	breq	.+2      	; 0x4e4 <keypad+0x44>
+ 4e2:	3c c1       	rjmp	.+632    	; 0x75c <keypad+0x2bc>
+ 4e4:	91 c0       	rjmp	.+290    	; 0x608 <keypad+0x168>
+ 4e6:	8a 30       	cpi	r24, 0x0A	; 10
+ 4e8:	09 f4       	brne	.+2      	; 0x4ec <keypad+0x4c>
+ 4ea:	ec c0       	rjmp	.+472    	; 0x6c4 <keypad+0x224>
+ 4ec:	8b 30       	cpi	r24, 0x0B	; 11
+ 4ee:	09 f0       	breq	.+2      	; 0x4f2 <keypad+0x52>
+ 4f0:	35 c1       	rjmp	.+618    	; 0x75c <keypad+0x2bc>
+ 4f2:	03 c1       	rjmp	.+518    	; 0x6fa <keypad+0x25a>
+		{
+			case 1:  // reset or full reset
+			if  (key == 2)	// full reset
+ 4f4:	12 30       	cpi	r17, 0x02	; 2
+ 4f6:	31 f4       	brne	.+12     	; 0x504 <keypad+0x64>
+			{
+				mode = 0;
+ 4f8:	10 92 74 00 	sts	0x0074, r1
+				maxround = 0;
+ 4fc:	10 92 82 00 	sts	0x0082, r1
+				round_no = 0;
+ 500:	10 92 83 00 	sts	0x0083, r1
+			}
+			reset();	// reset counter and others depending on mode
+ 504:	0e 94 25 02 	call	0x44a	; 0x44a <reset>
+ 508:	29 c1       	rjmp	.+594    	; 0x75c <keypad+0x2bc>
+			break;
+
+			case 3:	// set priority for overtime
+					// also sets initial time to 1 minite
+					// inv sets mode
+			if  (key == 2)	//mode
+ 50a:	12 30       	cpi	r17, 0x02	; 2
+ 50c:	41 f4       	brne	.+16     	; 0x51e <keypad+0x7e>
+			{
+				mode = 1;
+ 50e:	81 e0       	ldi	r24, 0x01	; 1
+ 510:	80 93 74 00 	sts	0x0074, r24
+				round_no = 1;
+ 514:	80 93 83 00 	sts	0x0083, r24
+				maxround = 3;
+ 518:	90 93 82 00 	sts	0x0082, r25
+ 51c:	1f c1       	rjmp	.+574    	; 0x75c <keypad+0x2bc>
+			}
+			else
+			{
+				t.minute = 1;
+ 51e:	81 e0       	ldi	r24, 0x01	; 1
+ 520:	80 93 67 00 	sts	0x0067, r24
+				t.second_hd = 0;
+ 524:	10 92 66 00 	sts	0x0066, r1
+				t.second_ld = 0;
+ 528:	10 92 65 00 	sts	0x0065, r1
+				if (!(mask[R_L] | mask[G_L]))
+ 52c:	80 91 69 00 	lds	r24, 0x0069
+ 530:	90 91 6b 00 	lds	r25, 0x006B
+ 534:	89 2b       	or	r24, r25
+ 536:	09 f0       	breq	.+2      	; 0x53a <keypad+0x9a>
+ 538:	11 c1       	rjmp	.+546    	; 0x75c <keypad+0x2bc>
+				{
+					if (turn & 0b00000001) mask[G_L] = DP;
+ 53a:	80 91 70 00 	lds	r24, 0x0070
+ 53e:	80 ff       	sbrs	r24, 0
+ 540:	04 c0       	rjmp	.+8      	; 0x54a <keypad+0xaa>
+ 542:	80 e8       	ldi	r24, 0x80	; 128
+ 544:	80 93 69 00 	sts	0x0069, r24
+ 548:	09 c1       	rjmp	.+530    	; 0x75c <keypad+0x2bc>
+					else mask[R_L] = DP;			
+ 54a:	80 e8       	ldi	r24, 0x80	; 128
+ 54c:	80 93 6b 00 	sts	0x006B, r24
+ 550:	05 c1       	rjmp	.+522    	; 0x75c <keypad+0x2bc>
+				}
+			}
+			break;
+			
+			case 4:  // card for red
+				if (key == 2) // decrement card
+ 552:	12 30       	cpi	r17, 0x02	; 2
+ 554:	71 f4       	brne	.+28     	; 0x572 <keypad+0xd2>
+				{
+					if (mask[R_H] == DP) mask[R_H] = 0;
+ 556:	80 91 6a 00 	lds	r24, 0x006A
+ 55a:	80 38       	cpi	r24, 0x80	; 128
+ 55c:	11 f4       	brne	.+4      	; 0x562 <keypad+0xc2>
+ 55e:	10 92 6a 00 	sts	0x006A, r1
+					if (mask[T_SL] == DP)
+ 562:	80 91 6d 00 	lds	r24, 0x006D
+ 566:	80 38       	cpi	r24, 0x80	; 128
+ 568:	09 f0       	breq	.+2      	; 0x56c <keypad+0xcc>
+ 56a:	f8 c0       	rjmp	.+496    	; 0x75c <keypad+0x2bc>
+					{
+						mask[T_SL] = 0;
+ 56c:	10 92 6d 00 	sts	0x006D, r1
+ 570:	09 c0       	rjmp	.+18     	; 0x584 <keypad+0xe4>
+						mask[R_H] = DP;
+					}
+				}
+				else // increment card
+				{
+					if ((mask[R_H] != DP) && (mask[T_SL] != DP))  mask[R_H] = DP;
+ 572:	80 91 6a 00 	lds	r24, 0x006A
+ 576:	80 38       	cpi	r24, 0x80	; 128
+ 578:	41 f0       	breq	.+16     	; 0x58a <keypad+0xea>
+ 57a:	80 91 6d 00 	lds	r24, 0x006D
+ 57e:	80 38       	cpi	r24, 0x80	; 128
+ 580:	21 f0       	breq	.+8      	; 0x58a <keypad+0xea>
+ 582:	80 e8       	ldi	r24, 0x80	; 128
+ 584:	80 93 6a 00 	sts	0x006A, r24
+ 588:	e9 c0       	rjmp	.+466    	; 0x75c <keypad+0x2bc>
+					else
+					{
+						mask[R_H] = 0;
+ 58a:	10 92 6a 00 	sts	0x006A, r1
+						mask[T_SL] = DP;
+ 58e:	80 e8       	ldi	r24, 0x80	; 128
+ 590:	80 93 6d 00 	sts	0x006D, r24
+	return(out);
+}
+
+void increment_score(score *s)
+{
+	if (++(s->ld) == 10)
+ 594:	80 91 72 00 	lds	r24, 0x0072
+ 598:	8f 5f       	subi	r24, 0xFF	; 255
+ 59a:	80 93 72 00 	sts	0x0072, r24
+ 59e:	8a 30       	cpi	r24, 0x0A	; 10
+ 5a0:	09 f0       	breq	.+2      	; 0x5a4 <keypad+0x104>
+ 5a2:	dc c0       	rjmp	.+440    	; 0x75c <keypad+0x2bc>
+	{
+		s->ld = 0;
+ 5a4:	10 92 72 00 	sts	0x0072, r1
+		if (++(s->hd) == 10)
+ 5a8:	80 91 71 00 	lds	r24, 0x0071
+ 5ac:	8f 5f       	subi	r24, 0xFF	; 255
+ 5ae:	80 93 71 00 	sts	0x0071, r24
+ 5b2:	8a 30       	cpi	r24, 0x0A	; 10
+ 5b4:	09 f0       	breq	.+2      	; 0x5b8 <keypad+0x118>
+ 5b6:	d2 c0       	rjmp	.+420    	; 0x75c <keypad+0x2bc>
+		{
+			s->ld = 9;
+ 5b8:	89 e0       	ldi	r24, 0x09	; 9
+ 5ba:	80 93 72 00 	sts	0x0072, r24
+			s->hd = 9;	
+ 5be:	80 93 71 00 	sts	0x0071, r24
+ 5c2:	cc c0       	rjmp	.+408    	; 0x75c <keypad+0x2bc>
+					}
+				}
+			break;
+			
+			case 6:  // card for green 
+				if (key == 2) // decrement card
+ 5c4:	12 30       	cpi	r17, 0x02	; 2
+ 5c6:	71 f4       	brne	.+28     	; 0x5e4 <keypad+0x144>
+				{
+					if (mask[G_H] == DP) mask[G_H] = 0;
+ 5c8:	80 91 68 00 	lds	r24, 0x0068
+ 5cc:	80 38       	cpi	r24, 0x80	; 128
+ 5ce:	11 f4       	brne	.+4      	; 0x5d4 <keypad+0x134>
+ 5d0:	10 92 68 00 	sts	0x0068, r1
+					if (mask[R_] == DP)
+ 5d4:	80 91 6e 00 	lds	r24, 0x006E
+ 5d8:	80 38       	cpi	r24, 0x80	; 128
+ 5da:	09 f0       	breq	.+2      	; 0x5de <keypad+0x13e>
+ 5dc:	bf c0       	rjmp	.+382    	; 0x75c <keypad+0x2bc>
+					{
+						mask[R_] = 0;
+ 5de:	10 92 6e 00 	sts	0x006E, r1
+ 5e2:	09 c0       	rjmp	.+18     	; 0x5f6 <keypad+0x156>
+						mask[G_H] = DP;
+					}
+				}
+				else // increment card
+				{
+					if ((mask[G_H] != DP) &&(mask[R_] != DP)) mask[G_H] = DP;
+ 5e4:	80 91 68 00 	lds	r24, 0x0068
+ 5e8:	80 38       	cpi	r24, 0x80	; 128
+ 5ea:	41 f0       	breq	.+16     	; 0x5fc <keypad+0x15c>
+ 5ec:	80 91 6e 00 	lds	r24, 0x006E
+ 5f0:	80 38       	cpi	r24, 0x80	; 128
+ 5f2:	21 f0       	breq	.+8      	; 0x5fc <keypad+0x15c>
+ 5f4:	80 e8       	ldi	r24, 0x80	; 128
+ 5f6:	80 93 68 00 	sts	0x0068, r24
+ 5fa:	b0 c0       	rjmp	.+352    	; 0x75c <keypad+0x2bc>
+					else
+					{
+						mask[G_H] = 0;
+ 5fc:	10 92 68 00 	sts	0x0068, r1
+						mask[R_] = DP;
+ 600:	80 e8       	ldi	r24, 0x80	; 128
+ 602:	80 93 6e 00 	sts	0x006E, r24
+ 606:	18 c0       	rjmp	.+48     	; 0x638 <keypad+0x198>
+					}
+				}
+			break;
+
+			case 7:	// change red score
+			if (key == 2)
+ 608:	12 30       	cpi	r17, 0x02	; 2
+ 60a:	b1 f4       	brne	.+44     	; 0x638 <keypad+0x198>
+	}
+}
+
+void decrement_score(score *s)
+{
+	if (--(s->ld) < 0)
+ 60c:	80 91 7f 00 	lds	r24, 0x007F
+ 610:	81 50       	subi	r24, 0x01	; 1
+ 612:	80 93 7f 00 	sts	0x007F, r24
+ 616:	87 ff       	sbrs	r24, 7
+ 618:	a1 c0       	rjmp	.+322    	; 0x75c <keypad+0x2bc>
+	{
+		s->ld = 9;
+ 61a:	89 e0       	ldi	r24, 0x09	; 9
+ 61c:	80 93 7f 00 	sts	0x007F, r24
+		if (--(s->hd) < 0)
+ 620:	80 91 7e 00 	lds	r24, 0x007E
+ 624:	81 50       	subi	r24, 0x01	; 1
+ 626:	80 93 7e 00 	sts	0x007E, r24
+ 62a:	87 ff       	sbrs	r24, 7
+ 62c:	97 c0       	rjmp	.+302    	; 0x75c <keypad+0x2bc>
+		{
+			s->hd = 0;
+ 62e:	10 92 7e 00 	sts	0x007E, r1
+			s->ld = 0;
+ 632:	10 92 7f 00 	sts	0x007F, r1
+ 636:	92 c0       	rjmp	.+292    	; 0x75c <keypad+0x2bc>
+	return(out);
+}
+
+void increment_score(score *s)
+{
+	if (++(s->ld) == 10)
+ 638:	80 91 7f 00 	lds	r24, 0x007F
+ 63c:	8f 5f       	subi	r24, 0xFF	; 255
+ 63e:	80 93 7f 00 	sts	0x007F, r24
+ 642:	8a 30       	cpi	r24, 0x0A	; 10
+ 644:	09 f0       	breq	.+2      	; 0x648 <keypad+0x1a8>
+ 646:	8a c0       	rjmp	.+276    	; 0x75c <keypad+0x2bc>
+	{
+		s->ld = 0;
+ 648:	10 92 7f 00 	sts	0x007F, r1
+		if (++(s->hd) == 10)
+ 64c:	80 91 7e 00 	lds	r24, 0x007E
+ 650:	8f 5f       	subi	r24, 0xFF	; 255
+ 652:	80 93 7e 00 	sts	0x007E, r24
+ 656:	8a 30       	cpi	r24, 0x0A	; 10
+ 658:	09 f0       	breq	.+2      	; 0x65c <keypad+0x1bc>
+ 65a:	80 c0       	rjmp	.+256    	; 0x75c <keypad+0x2bc>
+		{
+			s->ld = 9;
+ 65c:	89 e0       	ldi	r24, 0x09	; 9
+ 65e:	80 93 7f 00 	sts	0x007F, r24
+			s->hd = 9;	
+ 662:	80 93 7e 00 	sts	0x007E, r24
+ 666:	7a c0       	rjmp	.+244    	; 0x75c <keypad+0x2bc>
+				increment_score(&red_score);
+			}
+			break;
+			
+			case 9:	// change green score
+			if (key == 2)
+ 668:	12 30       	cpi	r17, 0x02	; 2
+ 66a:	a9 f4       	brne	.+42     	; 0x696 <keypad+0x1f6>
+	}
+}
+
+void decrement_score(score *s)
+{
+	if (--(s->ld) < 0)
+ 66c:	80 91 72 00 	lds	r24, 0x0072
+ 670:	81 50       	subi	r24, 0x01	; 1
+ 672:	80 93 72 00 	sts	0x0072, r24
+ 676:	87 ff       	sbrs	r24, 7
+ 678:	71 c0       	rjmp	.+226    	; 0x75c <keypad+0x2bc>
+	{
+		s->ld = 9;
+ 67a:	90 93 72 00 	sts	0x0072, r25
+		if (--(s->hd) < 0)
+ 67e:	80 91 71 00 	lds	r24, 0x0071
+ 682:	81 50       	subi	r24, 0x01	; 1
+ 684:	80 93 71 00 	sts	0x0071, r24
+ 688:	87 ff       	sbrs	r24, 7
+ 68a:	68 c0       	rjmp	.+208    	; 0x75c <keypad+0x2bc>
+		{
+			s->hd = 0;
+ 68c:	10 92 71 00 	sts	0x0071, r1
+			s->ld = 0;
+ 690:	10 92 72 00 	sts	0x0072, r1
+ 694:	63 c0       	rjmp	.+198    	; 0x75c <keypad+0x2bc>
+	return(out);
+}
+
+void increment_score(score *s)
+{
+	if (++(s->ld) == 10)
+ 696:	80 91 72 00 	lds	r24, 0x0072
+ 69a:	8f 5f       	subi	r24, 0xFF	; 255
+ 69c:	80 93 72 00 	sts	0x0072, r24
+ 6a0:	8a 30       	cpi	r24, 0x0A	; 10
+ 6a2:	09 f0       	breq	.+2      	; 0x6a6 <keypad+0x206>
+ 6a4:	5b c0       	rjmp	.+182    	; 0x75c <keypad+0x2bc>
+	{
+		s->ld = 0;
+ 6a6:	10 92 72 00 	sts	0x0072, r1
+		if (++(s->hd) == 10)
+ 6aa:	80 91 71 00 	lds	r24, 0x0071
+ 6ae:	8f 5f       	subi	r24, 0xFF	; 255
+ 6b0:	80 93 71 00 	sts	0x0071, r24
+ 6b4:	8a 30       	cpi	r24, 0x0A	; 10
+ 6b6:	09 f0       	breq	.+2      	; 0x6ba <keypad+0x21a>
+ 6b8:	51 c0       	rjmp	.+162    	; 0x75c <keypad+0x2bc>
+		{
+			s->ld = 9;
+ 6ba:	90 93 72 00 	sts	0x0072, r25
+			s->hd = 9;	
+ 6be:	90 93 71 00 	sts	0x0071, r25
+ 6c2:	4c c0       	rjmp	.+152    	; 0x75c <keypad+0x2bc>
+			{
+				increment_score(&green_score);
+			}
+			break;
+			case 10:  // increment minutes
+			if (key == 2)
+ 6c4:	12 30       	cpi	r17, 0x02	; 2
+ 6c6:	61 f4       	brne	.+24     	; 0x6e0 <keypad+0x240>
+			{
+				if (--t.minute<0) t.minute = 0;
+ 6c8:	80 91 67 00 	lds	r24, 0x0067
+ 6cc:	81 50       	subi	r24, 0x01	; 1
+ 6ce:	80 93 67 00 	sts	0x0067, r24
+ 6d2:	80 91 67 00 	lds	r24, 0x0067
+ 6d6:	87 ff       	sbrs	r24, 7
+ 6d8:	41 c0       	rjmp	.+130    	; 0x75c <keypad+0x2bc>
+ 6da:	10 92 67 00 	sts	0x0067, r1
+ 6de:	3e c0       	rjmp	.+124    	; 0x75c <keypad+0x2bc>
+			}
+			else
+			{
+				if (++t.minute == 10) t.minute = 9;
+ 6e0:	80 91 67 00 	lds	r24, 0x0067
+ 6e4:	8f 5f       	subi	r24, 0xFF	; 255
+ 6e6:	80 93 67 00 	sts	0x0067, r24
+ 6ea:	80 91 67 00 	lds	r24, 0x0067
+ 6ee:	8a 30       	cpi	r24, 0x0A	; 10
+ 6f0:	a9 f5       	brne	.+106    	; 0x75c <keypad+0x2bc>
+ 6f2:	89 e0       	ldi	r24, 0x09	; 9
+ 6f4:	80 93 67 00 	sts	0x0067, r24
+ 6f8:	31 c0       	rjmp	.+98     	; 0x75c <keypad+0x2bc>
+			}
+			break;
+
+			case 11:  // increment seconds
+			if (key == 2)
+ 6fa:	12 30       	cpi	r17, 0x02	; 2
+ 6fc:	c9 f4       	brne	.+50     	; 0x730 <keypad+0x290>
+			{
+				t.second_ld = t.second_ld -2;
+ 6fe:	80 91 65 00 	lds	r24, 0x0065
+ 702:	82 50       	subi	r24, 0x02	; 2
+ 704:	80 93 65 00 	sts	0x0065, r24
+				if (t.second_ld<0)
+ 708:	80 91 65 00 	lds	r24, 0x0065
+ 70c:	87 ff       	sbrs	r24, 7
+ 70e:	26 c0       	rjmp	.+76     	; 0x75c <keypad+0x2bc>
+				{
+					t.second_ld=19;
+ 710:	83 e1       	ldi	r24, 0x13	; 19
+ 712:	80 93 65 00 	sts	0x0065, r24
+					if (--t.second_hd<0)
+ 716:	80 91 66 00 	lds	r24, 0x0066
+ 71a:	81 50       	subi	r24, 0x01	; 1
+ 71c:	80 93 66 00 	sts	0x0066, r24
+ 720:	80 91 66 00 	lds	r24, 0x0066
+ 724:	87 ff       	sbrs	r24, 7
+ 726:	1a c0       	rjmp	.+52     	; 0x75c <keypad+0x2bc>
+					{
+						t.second_hd=5;
+ 728:	85 e0       	ldi	r24, 0x05	; 5
+ 72a:	80 93 66 00 	sts	0x0066, r24
+ 72e:	16 c0       	rjmp	.+44     	; 0x75c <keypad+0x2bc>
+					}
+				}
+			}
+			else
+			{
+				t.second_ld = t.second_ld + 2;
+ 730:	80 91 65 00 	lds	r24, 0x0065
+ 734:	8e 5f       	subi	r24, 0xFE	; 254
+ 736:	80 93 65 00 	sts	0x0065, r24
+				if (t.second_ld > 19)
+ 73a:	80 91 65 00 	lds	r24, 0x0065
+ 73e:	84 31       	cpi	r24, 0x14	; 20
+ 740:	6c f0       	brlt	.+26     	; 0x75c <keypad+0x2bc>
+				{
+					t.second_ld = 0;
+ 742:	10 92 65 00 	sts	0x0065, r1
+					if (++t.second_hd >5) t.second_hd = 0;	
+ 746:	80 91 66 00 	lds	r24, 0x0066
+ 74a:	8f 5f       	subi	r24, 0xFF	; 255
+ 74c:	80 93 66 00 	sts	0x0066, r24
+ 750:	80 91 66 00 	lds	r24, 0x0066
+ 754:	86 30       	cpi	r24, 0x06	; 6
+ 756:	14 f0       	brlt	.+4      	; 0x75c <keypad+0x2bc>
+ 758:	10 92 66 00 	sts	0x0066, r1
+				}
+			}
+			default: break;
+		}
+	}
+}
+ 75c:	1f 91       	pop	r17
+ 75e:	08 95       	ret
+
+00000760 <main>:
+void increment_score(score*);
+void decrement_score(score *);
+void reset(void);   
+                                                        
+int main(void)
+{
+ 760:	0e 94 73 00 	call	0xe6	; 0xe6 <init>
+	init();
+	reset();
+ 764:	0e 94 25 02 	call	0x44a	; 0x44a <reset>
+	
+	while(1)                     
+	{
+		sleep_mode();	//will wake up from timer interrupt
+ 768:	85 b7       	in	r24, 0x35	; 53
+ 76a:	80 64       	ori	r24, 0x40	; 64
+ 76c:	85 bf       	out	0x35, r24	; 53
+ 76e:	88 95       	sleep
+ 770:	85 b7       	in	r24, 0x35	; 53
+ 772:	8f 7b       	andi	r24, 0xBF	; 191
+ 774:	85 bf       	out	0x35, r24	; 53
+
+		keypad();
+ 776:	0e 94 50 02 	call	0x4a0	; 0x4a0 <keypad>
+
+		display();
+ 77a:	0e 94 8c 00 	call	0x118	; 0x118 <display>
+
+		if (round_done)
+ 77e:	80 91 63 00 	lds	r24, 0x0063
+ 782:	88 23       	and	r24, r24
+ 784:	89 f3       	breq	.-30     	; 0x768 <main+0x8>
+		{
+			round_done = FALSE;
+ 786:	10 92 63 00 	sts	0x0063, r1
+			if (mode == 1)
+ 78a:	20 91 74 00 	lds	r18, 0x0074
+ 78e:	21 30       	cpi	r18, 0x01	; 1
+ 790:	59 f7       	brne	.-42     	; 0x768 <main+0x8>
+			{
+				if (++round_no > maxround)round_no = 1;
+ 792:	80 91 83 00 	lds	r24, 0x0083
+ 796:	8f 5f       	subi	r24, 0xFF	; 255
+ 798:	80 93 83 00 	sts	0x0083, r24
+ 79c:	90 91 82 00 	lds	r25, 0x0082
+ 7a0:	98 17       	cp	r25, r24
+ 7a2:	10 f4       	brcc	.+4      	; 0x7a8 <main+0x48>
+ 7a4:	20 93 83 00 	sts	0x0083, r18
+//				dsp[7] = pgm_read_byte(&digit[round_no]);
+				t.minute = maxmin;			}
+ 7a8:	80 91 60 00 	lds	r24, 0x0060
+ 7ac:	80 93 67 00 	sts	0x0067, r24
+ 7b0:	db cf       	rjmp	.-74     	; 0x768 <main+0x8>
+
+000007b2 <_exit>:
+ 7b2:	f8 94       	cli
+
+000007b4 <__stop_program>:
+ 7b4:	ff cf       	rjmp	.-2      	; 0x7b4 <__stop_program>

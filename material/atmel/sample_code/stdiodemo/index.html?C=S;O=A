@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~paul/cs4723/material/atmel/sample_code/stdiodemo</title>
+ </head>
+ <body>
+<h1>Index of /~paul/cs4723/material/atmel/sample_code/stdiodemo</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=D">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~paul/cs4723/material/atmel/sample_code/">Parent Directory</a>                             -   
+<img src="/icons/folder.gif" alt="[DIR]"> <a href="default/">default/</a>                05-Dec-2007 00:29    -   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.aws">stdiodemo.aws</a>           03-Dec-2007 22:26  231   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lcd.h">lcd.h</a>                   03-Dec-2007 21:55  727   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="defines.h">defines.h</a>               04-Dec-2007 21:02  928   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="uart.h">uart.h</a>                  03-Dec-2007 21:55  1.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="Makefile">Makefile</a>                03-Dec-2007 21:55  1.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="lcd.c">lcd.c</a>                   03-Dec-2007 21:55  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="stdiodemo.c">stdiodemo.c</a>             04-Dec-2007 21:05  2.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="hd44780.h">hd44780.h</a>               03-Dec-2007 21:55  2.7K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="stdiodemo.aps">stdiodemo.aps</a>           03-Dec-2007 22:26  2.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="uart.c">uart.c</a>                  03-Dec-2007 22:16  4.1K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="hd44780.c">hd44780.c</a>               03-Dec-2007 21:55  4.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="stdiodemo.dox">stdiodemo.dox</a>           03-Dec-2007 21:55   21K  
+<img src="/icons/image2.gif" alt="[IMG]"> <a href="stdiodemo-setup.jpg">stdiodemo-setup.jpg</a>     03-Dec-2007 21:55   98K  
+<hr></pre>
+<address>Apache Server at www.cs.mun.ca Port 80</address>
+</body></html>
